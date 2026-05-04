@@ -101,10 +101,12 @@ button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
 .hero h1 em{font-style:normal;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-sub{font-size:17px;line-height:1.68;color:rgba(255,255,255,.62);max-width:460px;margin-bottom:34px;}
 .hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.btn-hero-primary{display:inline-flex;align-items:center;gap:6px;background:var(--blue-200);color:#fff;border-radius:10px;padding:13px 26px;font-size:15px;font-weight:600;transition:background .18s,box-shadow .18s;}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:6px;background:var(--blue-200);color:#fff;border-radius:8px;padding:13px 26px;font-size:15px;font-weight:600;transition:background .18s,box-shadow .18s;}
 .btn-hero-primary:hover{background:#1550d4;box-shadow:0 8px 28px rgba(29,97,246,.35);}
-.btn-hero-ghost{display:inline-flex;align-items:center;gap:6px;background:transparent;color:rgba(255,255,255,.72);border:1.5px solid rgba(255,255,255,.2);border-radius:10px;padding:12px 24px;font-size:15px;font-weight:600;transition:all .18s;}
-.btn-hero-ghost:hover{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.4);}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.82);border:1.5px solid rgba(255,255,255,.16);border-radius:8px;padding:12px 22px;font-size:15px;font-weight:600;transition:all .18s;}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3);}
+.btn-hero-ghost .play-icon{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.btn-hero-ghost .play-icon svg{margin-left:1px;}
 
 /* Hero right side */
 .hero-right{position:relative;height:520px;}
@@ -138,12 +140,14 @@ button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
 @keyframes float-t3{from{transform:translateY(0);}to{transform:translateY(-6px);}}
 
 /* ── MARQUEE ── */
-.marquee-strip{background:var(--dark-200);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 0;overflow:hidden;}
-.marquee-inner{mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);}
-.marquee-track{display:flex;align-items:center;gap:48px;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-strip{background:var(--dark-300);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);padding:22px 0 20px;overflow:hidden;}
+.marquee-trusted{text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px;}
+.marquee-inner{mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);}
+.marquee-track{display:flex;align-items:center;gap:60px;width:max-content;animation:marquee 30s linear infinite;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.marquee-logo{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.45);}
-.marquee-logo-icon{width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:13px;}
+.marquee-logo{display:flex;align-items:center;height:28px;opacity:.5;transition:opacity .2s;filter:brightness(0) invert(1);}
+.marquee-logo:hover{opacity:.75;}
+.marquee-logo img{height:22px;width:auto;object-fit:contain;display:block;}
 
 /* ── HOW IT WORKS ── */
 .how-sec{padding:100px 0;background:var(--light-000);}
@@ -410,8 +414,11 @@ button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
       <h1>Every milestone.<br><em>Celebrated automatically.</em></h1>
       <p class="hero-sub">Empuls detects birthdays, work anniversaries, and life events — then triggers Wishboards, gift credits, and team shoutouts without any HR effort.</p>
       <div class="hero-ctas">
-        <a href="https://www.xoxoday.com/empuls/demo" class="btn-hero-primary">Talk to our expert →</a>
-        <a href="https://www.xoxoday.com/empuls/employee-gifting" class="btn-hero-ghost">See how it works</a>
+        <a href="https://www.xoxoday.com/empuls/demo" class="btn-hero-primary">Book a demo</a>
+        <a href="https://www.xoxoday.com/empuls/employee-gifting" class="btn-hero-ghost">
+          <span class="play-icon"><svg width="8" height="10" viewBox="0 0 8 10" fill="none"><path d="M1 1l6 4-6 4V1z" fill="rgba(255,255,255,.85)"/></svg></span>
+          Watch 2-min demo
+        </a>
       </div>
     </div>
 
@@ -472,34 +479,21 @@ button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
 
 <!-- LOGO MARQUEE -->
 <div class="marquee-strip">
+  <div class="marquee-trusted">Trusted by 1,400+ companies worldwide</div>
   <div class="marquee-inner">
     <div class="marquee-track">
       <!-- Set 1 -->
-      <div class="marquee-logo"><div class="marquee-logo-icon">💬</div>Slack</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>Microsoft Teams</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">📊</div>Workday</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟢</div>BambooHR</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🧡</div>SAP SuccessFactors</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟣</div>Darwinbox</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟡</div>Google Workspace</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟠</div>Keka</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔴</div>Zoho People</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>SharePoint</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">📱</div>Mobile App</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔵</div>LinkedIn</div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/kennametal.png" alt="Kennametal" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/luminous.png" alt="Luminous" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/western-digital.svg" alt="Western Digital" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/bosch.png" alt="Bosch" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/cgi.png" alt="CGI" /></div>
       <!-- Set 2 (duplicate for seamless loop) -->
-      <div class="marquee-logo"><div class="marquee-logo-icon">💬</div>Slack</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>Microsoft Teams</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">📊</div>Workday</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟢</div>BambooHR</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🧡</div>SAP SuccessFactors</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟣</div>Darwinbox</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟡</div>Google Workspace</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🟠</div>Keka</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔴</div>Zoho People</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>SharePoint</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">📱</div>Mobile App</div>
-      <div class="marquee-logo"><div class="marquee-logo-icon">🔵</div>LinkedIn</div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/kennametal.png" alt="Kennametal" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/luminous.png" alt="Luminous" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/western-digital.svg" alt="Western Digital" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/bosch.png" alt="Bosch" /></div>
+      <div class="marquee-logo"><img src="https://out-delta-amber.vercel.app/logos/spot-awards/cgi.png" alt="CGI" /></div>
     </div>
   </div>
 </div>
