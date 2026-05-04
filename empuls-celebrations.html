@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Celebrations Overview | Empuls by Xoxoday</title>
+<meta name="description" content="Automate birthdays, anniversaries, onboarding, festivals, and life events. Empuls delivers thoughtful, personalized celebrations for every employee milestone — at scale, globally." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ── DESIGN SYSTEM ── */
+:root {
+  --font-display: 'DM Sans', 'Inter', -apple-system, sans-serif;
+  --radius: 10px;
+  --color-navy: #06182d;
+  --color-blue: #0a51e8;
+  --color-blue-dark: #0842bf;
+  --color-amber: #f6b847;
+  --color-body: #4c5a70;
+  --color-muted: #8092a0;
+  --color-border: #e2e5ea;
+  --color-bg-light: #f5f6f8;
+  --ink: #06182d;
+  --border: #e2e5ea;
+  --white: #ffffff; --off-white: #f7f7f9; --light-bg: #eef4fd;
+  --muted: #4c5a70;
+  --body-muted: #4c5a70;
+  --brand: #0a51e8;
+  --brand-mid: #0842bf;
+  --brand-l: #eef4fd;
+  --brand-ll: #f0f5ff;
+  --accent: #0a51e8;
+  --green: #22c55e; --green-l: #dcfce7;
+  --orange: #f97316; --orange-l: #fff7ed;
+  --blue: #3b82f6; --blue-l: #eff6ff;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-tight: 'DM Sans', 'Inter', sans-serif;
+  --max-w: 1160px; --nav-h: 64px;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-pill:999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.13), 0 2px 8px rgba(0,0,0,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);font-size:15px;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;padding-top:68px;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button{font-family:var(--font-body);cursor:pointer;}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:.08s;}.reveal-d2{transition-delay:.16s;}.reveal-d3{transition-delay:.24s;}.reveal-d4{transition-delay:.32s;}
+
+/* ── XOX HEADER ── */
+#xox-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:8px 16px 0;pointer-events:none;}
+.xox-nav-pill{pointer-events:auto;max-width:1200px;margin:0 auto;background:transparent;border:1px solid transparent;border-radius:12px;padding:0 20px;transition:background .3s,box-shadow .3s,border-color .3s;}
+.xox-nav-pill.is-scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-color:rgba(226,229,234,.7);box-shadow:0 1px 3px rgba(6,24,45,.06),0 4px 24px rgba(6,24,45,.07);}
+.xox-nav-inner{display:flex;align-items:center;height:52px;gap:4px;}
+.xox-nav-logo{flex-shrink:0;margin-right:12px;}
+.xox-nav-logo img{height:22px;width:auto;display:block;}
+.xox-nav-links{display:flex;align-items:center;gap:2px;flex:1;list-style:none;}
+.xox-nav-links li{position:relative;}
+.xox-nav-link{display:flex;align-items:center;gap:3px;font-size:13.5px;font-weight:500;color:#4c5a70;padding:6px 10px;border-radius:6px;cursor:pointer;background:none;border:none;transition:color .13s,background .13s;white-space:nowrap;}
+.xox-nav-link:hover{color:#06182d;background:rgba(6,24,45,.04);}
+.xox-nav-link svg{opacity:.45;flex-shrink:0;transition:transform .18s;}
+.xox-nav-links li:hover>.xox-nav-link svg{transform:rotate(180deg);opacity:.7;}
+.xox-drop{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid #e2e5ea;border-radius:12px;box-shadow:0 8px 32px rgba(6,24,45,.10),0 1px 4px rgba(6,24,45,.06);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .16s,transform .16s,visibility .16s;z-index:300;}
+.xox-nav-links li:hover>.xox-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}
+.xox-drop--mega{display:grid;grid-template-columns:repeat(4,1fr);width:820px;left:-200px;padding:20px;gap:0;}
+.xox-drop--md{display:grid;grid-template-columns:1fr 1fr;width:420px;left:-60px;padding:16px;}
+.xox-drop--sm{display:flex;flex-direction:column;gap:2px;min-width:190px;padding:8px;}
+.xox-dcol{padding:0 12px;}
+.xox-dcol+.xox-dcol{border-left:1px solid #f0f2f5;}
+.xox-dcol-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8092a0;padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid #f0f2f5;}
+.xox-ditem{display:flex;align-items:flex-start;gap:8px;padding:6px 6px;border-radius:6px;transition:background .12s;margin-bottom:1px;text-decoration:none;cursor:pointer;}
+.xox-ditem:hover{background:#f5f6f8;}
+.xox-ditem--active{background:#eef4fd;}
+.xox-ditem__name{font-size:12.5px;font-weight:500;color:#06182d;line-height:1.3;}
+.xox-ditem--active .xox-ditem__name{color:#0a51e8;}
+.xox-drop-link{display:block;padding:6px 10px;font-size:13px;font-weight:500;color:#4c5a70;border-radius:5px;transition:background .12s,color .12s;}
+.xox-drop-link:hover{background:#f5f6f8;color:#06182d;}
+.xox-nav-ctas{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:auto;}
+.xox-btn-demo{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;background:#0a51e8;color:#fff;border:none;border-radius:6px;padding:8px 16px;text-decoration:none;transition:background .15s,transform .15s;cursor:pointer;}
+.xox-btn-demo:hover{background:#0043c7;transform:translateY(-1px);}
+.xox-btn-redeem{display:inline-flex;align-items:center;font-size:13px;font-weight:500;background:transparent;color:#06182d;border:1px solid #e2e5ea;border-radius:6px;padding:7px 15px;text-decoration:none;transition:background .13s;}
+.xox-btn-redeem:hover{background:#f5f6f8;}
+@media(max-width:900px){.xox-nav-links{display:none;}}
+
+/* ── Section common ── */
+.section-label{display:inline-flex;align-items:center;gap:7px;font-family:ui-monospace,'SF Mono','Cascadia Code',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8092a0;margin-bottom:14px;}
+.section-label::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#0a51e8;flex-shrink:0;animation:plum-dot-ping 2s cubic-bezier(0,0,.2,1) infinite;}
+@keyframes plum-dot-ping{0%,100%{box-shadow:0 0 0 0 rgba(10,81,232,.55);}60%{box-shadow:0 0 0 5px rgba(10,81,232,0);}}
+.section-title{font-family:var(--font-tight);font-size:clamp(26px,3.2vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#06182d;margin-bottom:18px;}
+.section-body{font-size:16px;line-height:1.65;color:#4c5a70;}
+.section-hd{max-width:680px;}
+.section-hd.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+/* Pill badge */
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:var(--r-pill);padding:4px 12px;font-size:12px;font-weight:600;}
+.pill-purple{background:#eef4fd;color:#0a51e8;}
+.pill-green{background:#dcfce7;color:#166534;}
+.pill-amber{background:#fef9ee;color:#92400e;}
+
+/* ── HERO ── */
+.hero{background:#ffffff;position:relative;overflow:hidden;padding:88px 0 80px;}
+.hero::before{content:'';position:absolute;top:-160px;left:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(closest-side,rgba(10,81,232,.11) 0%,rgba(10,81,232,.04) 55%,transparent 75%);pointer-events:none;z-index:0;}
+.hero::after{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,184,71,.16) 0%,rgba(246,184,71,.05) 55%,transparent 72%);pointer-events:none;z-index:0;}
+.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(10,81,232,.08);border:1px solid rgba(10,81,232,.2);border-radius:var(--r-pill);padding:5px 14px;margin-bottom:20px;}
+.hero__eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#0a51e8;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+.hero__eyebrow span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0a51e8;}
+.hero h1{font-family:var(--font-tight);font-size:clamp(38px,5vw,62px);font-weight:700;line-height:1.06;letter-spacing:-.03em;color:#06182d;margin-bottom:20px;}
+.hero__sub{font-size:17px;line-height:1.65;color:#4c5a70;max-width:480px;margin-bottom:32px;}
+.hero__ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
+.btn-primary{position:relative;display:inline-flex;align-items:center;gap:6px;overflow:hidden;background:#0a51e8;color:#fff;border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:600;text-decoration:none;transition:background .2s,box-shadow .2s;white-space:nowrap;cursor:pointer;}
+.btn-primary:hover{background:#0842bf;box-shadow:0 8px 24px rgba(10,81,232,.28);}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#4c5a70;padding:12px 14px;border-radius:8px;transition:color .15s;text-decoration:none;}
+.btn-ghost:hover{color:#06182d;}
+.hero__trust{display:flex;flex-wrap:wrap;align-items:center;gap:20px;border-top:1px solid #e2e5ea;padding-top:20px;}
+.hero__trust-item{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:#4c5a70;}
+
+/* Hero visual */
+.hero__visual{position:relative;}
+.hv-scene{position:relative;width:100%;max-width:520px;}
+.hv-window{background:#ffffff;border:1px solid rgba(226,229,234,.8);border-radius:14px;box-shadow:0 2px 4px rgba(6,24,45,.04),0 8px 32px rgba(6,24,45,.08),0 24px 64px rgba(6,24,45,.07);overflow:hidden;}
+.hv-chrome{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#f5f6f8;border-bottom:1px solid #eef0f3;}
+.hv-dots{display:flex;gap:5px;}
+.hv-dot{width:10px;height:10px;border-radius:50%;}
+.hv-dot-r{background:#ff5f57;}.hv-dot-y{background:#febc2e;}.hv-dot-g{background:#28c840;}
+.hv-urlbar{flex:1;display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e2e5ea;border-radius:6px;padding:3px 10px;font-size:10.5px;color:#8092a0;font-family:ui-monospace,monospace;}
+.hv-float{position:absolute;background:#fff;border:1px solid rgba(226,229,234,.8);border-radius:10px;box-shadow:0 4px 20px rgba(6,24,45,.1),0 1px 4px rgba(6,24,45,.06);padding:10px 12px;animation:hv-float-bob 4s ease-in-out infinite;}
+@keyframes hv-float-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.hv-float-ai{top:24px;right:-28px;width:196px;display:flex;align-items:flex-start;gap:8px;animation-delay:.5s;animation-duration:5s;}
+.hv-float-icon-ai{width:26px;height:26px;border-radius:8px;background:rgba(10,81,232,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hv-float-label{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0a51e8;margin-bottom:3px;}
+.hv-float-text{font-size:10.5px;color:#4c5a70;line-height:1.45;font-style:italic;}
+.hv-float-toast{bottom:20px;right:-24px;display:flex;align-items:center;gap:10px;width:188px;animation-delay:1.2s;animation-duration:4.5s;}
+.hv-toast-icon{font-size:22px;line-height:1;}
+.hv-toast-title{font-size:12px;font-weight:700;color:#06182d;}
+.hv-toast-sub{font-size:10px;color:#8092a0;margin-top:1px;}
+.hv-float-stats{bottom:-22px;left:10px;padding:10px 16px;animation-delay:0s;animation-duration:6s;}
+.hv-stats-row{display:flex;align-items:center;gap:14px;}
+.hv-stat-item{text-align:center;}
+.hv-stat-val{font-size:14px;font-weight:800;color:#06182d;font-family:'DM Sans','Inter',sans-serif;letter-spacing:-.03em;line-height:1;}
+.hv-stat-green{color:#16a34a;}.hv-stat-amber{color:#d97706;}
+.hv-stat-lbl{font-size:9px;color:#8092a0;white-space:nowrap;margin-top:2px;}
+.hv-stat-sep{width:1px;height:28px;background:#eef0f3;}
+.hero__visual{padding-bottom:40px;}
+
+/* ── LOGOS STRIP ── */
+.logos-sec{padding:40px 0;background:#f5f6f8;border-top:1px solid #e2e5ea;border-bottom:1px solid #e2e5ea;overflow:hidden;}
+.logos-label{text-align:center;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8092a0;margin-bottom:28px;}
+.logos-track-wrap{overflow:hidden;position:relative;}
+.logos-track-wrap::before,.logos-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.logos-track-wrap::before{left:0;background:linear-gradient(90deg,#f5f6f8,transparent);}
+.logos-track-wrap::after{right:0;background:linear-gradient(270deg,#f5f6f8,transparent);}
+.logos-track{display:flex;gap:48px;width:max-content;animation:logos-scroll 32s linear infinite;}
+@keyframes logos-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.logo-item{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:.55;transition:opacity .2s;filter:grayscale(100%);}
+.logo-item:hover{opacity:.85;}
+.logo-item__name{font-size:15px;font-weight:700;color:#06182d;letter-spacing:-.01em;}
+.logo-item__icon{width:28px;height:28px;border-radius:6px;background:#e2e5ea;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+
+/* ── FEATURES / PLATFORM CAPABILITIES ── */
+.features-sec{padding:96px 0;background:#ffffff;}
+.features-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:88px;}
+.features-layout:last-child{margin-bottom:0;}
+.features-layout.reverse{direction:rtl;}
+.features-layout.reverse>*{direction:ltr;}
+.features-visual{border:1px solid rgba(226,229,234,.7);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);background:#f5f6f8;display:flex;align-items:center;justify-content:center;padding:28px 24px;min-height:380px;}
+.feat-h3{font-family:var(--font-tight);font-size:26px;font-weight:700;letter-spacing:-.02em;color:#06182d;margin-bottom:12px;line-height:1.15;}
+.feat-p{font-size:15.5px;line-height:1.7;color:#4c5a70;margin-bottom:24px;}
+.feat-bullets{display:flex;flex-direction:column;gap:9px;margin-top:4px;}
+.feat-bullet{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#4c5a70;line-height:1.5;}
+.feat-bullet-icon{width:18px;height:18px;border-radius:50%;background:#eef4fd;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.feat-bullet-icon svg{stroke:#0a51e8;}
+
+/* ── HOW IT WORKS ── */
+.how-sec{padding:96px 0;background:#f5f6f8;position:relative;}
+.how-sec::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(226,229,234,.45) 3px,rgba(226,229,234,.45) 4px);pointer-events:none;z-index:0;}
+.how-sec .wrap{position:relative;z-index:1;}
+.how-sec .section-title{text-align:center;}
+.how-sec .section-label{display:block;text-align:center;}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative;}
+.steps-grid::before{content:'';position:absolute;top:28px;left:16%;right:16%;height:1px;background:repeating-linear-gradient(90deg,#0a51e8 0,#0a51e8 8px,transparent 8px,transparent 16px);z-index:0;}
+.step{text-align:center;padding:0 20px;position:relative;z-index:1;}
+.step__num{width:56px;height:56px;border-radius:50%;background:rgba(10,81,232,.08);color:#0a51e8;font-family:ui-monospace,monospace;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:none;box-shadow:0 0 0 8px rgba(10,81,232,.06);}
+.step__emoji{font-size:22px;margin-bottom:6px;}
+.step h3{font-family:var(--font-tight);font-size:17px;font-weight:700;color:#06182d;margin-bottom:10px;}
+.step p{font-size:14px;line-height:1.65;color:#4c5a70;}
+.step-card{background:#fff;border:1px solid rgba(226,229,234,.7);border-radius:16px;padding:28px 24px;box-shadow:0 1px 3px rgba(6,24,45,.04),0 4px 16px rgba(6,24,45,.05);}
+
+/* ── STATS BAND ── */
+.stats-sec{background:#06182d;padding:64px 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden;max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.stat-cell{background:#06182d;padding:40px 28px;text-align:center;}
+.stat-num{font-family:var(--font-tight);font-size:clamp(40px,4.5vw,56px);font-weight:700;color:#fff;letter-spacing:-.04em;line-height:1;margin-bottom:8px;}
+.stat-num span{color:#f6b847;}
+.stat-lbl{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5;max-width:140px;margin:0 auto;}
+@media(max-width:700px){.stats-grid{grid-template-columns:1fr 1fr;}}
+
+/* ── CUSTOMER STORY ── */
+.story-sec{padding:96px 0;background:#f5f6f8;}
+.story-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.story-tag{font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8092a0;margin-bottom:36px;display:flex;align-items:center;gap:8px;}
+.story-tag::before{content:'';display:inline-block;width:20px;height:1px;background:#e2e5ea;}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+blockquote.story-quote{font-family:var(--font-tight);font-size:clamp(20px,2vw,28px);font-weight:600;line-height:1.35;letter-spacing:-.02em;color:#06182d;margin-bottom:36px;}
+.story-attr{display:flex;align-items:center;gap:12px;}
+.story-avatar{width:44px;height:44px;border-radius:50%;background:#0a51e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.story-name{font-size:14px;font-weight:600;color:#06182d;}
+.story-role{font-size:12.5px;color:#8092a0;}
+.story-stats{display:flex;flex-direction:column;gap:28px;}
+.story-stat-item{border-left:3px solid #0a51e8;padding-left:20px;}
+.story-stat-num{font-family:var(--font-tight);font-size:40px;font-weight:700;color:#06182d;letter-spacing:-.03em;line-height:1;margin-bottom:4px;}
+.story-stat-label{font-size:13.5px;color:#4c5a70;}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:48px;}}
+
+/* ── INTEGRATIONS ── */
+.integrations-sec{padding:96px 0;background:#ffffff;}
+.int-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;justify-content:center;}
+.int-chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e2e5ea;border-radius:var(--r-pill);padding:10px 20px;box-shadow:var(--shadow-sm);font-size:14px;font-weight:500;color:#06182d;transition:box-shadow .2s,transform .2s,border-color .2s;}
+.int-chip:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);border-color:#0a51e8;}
+.int-chip__logo{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;background:#f0f0f5;}
+.int-note{text-align:center;margin-top:24px;font-size:14px;color:#4c5a70;}
+.int-note a{color:#0a51e8;font-weight:600;}
+
+/* ── FAQ ── */
+.faq-sec{background:#f5f6f8;padding:72px 0;}
+.faq-inner{max-width:860px;margin:0 auto;padding:0 40px;}
+.faq-sec .section-title{text-align:center;}
+.faq-sec .section-label{display:block;text-align:center;}
+.faq-list{margin-top:44px;border-top:1px solid #e2e5ea;}
+.faq-item{border-bottom:1px solid #e2e5ea;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px;}
+.faq-q-text{font-family:var(--font-tight);font-size:15px;font-weight:600;color:#06182d;line-height:1.5;flex:1;}
+.faq-chevron{width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid #e2e5ea;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#8092a0;transition:background .22s,border-color .22s,transform .3s cubic-bezier(.22,1,.36,1);}
+.faq-item.open .faq-chevron{background:#06182d;border-color:#06182d;transform:rotate(180deg);color:#fff;}
+.faq-item.open .faq-chevron svg path{stroke:#fff;}
+.faq-a{display:block;overflow:hidden;max-height:0;opacity:0;padding-bottom:0;transition:max-height .42s cubic-bezier(.22,1,.36,1),opacity .3s ease,padding-bottom .3s ease;}
+.faq-item.open .faq-a{max-height:400px;opacity:1;padding-bottom:20px;}
+.faq-a p{font-size:14px;color:#4c5a70;line-height:1.75;}
+
+/* ── CTA ── */
+.cta-sec{background:#06182d;padding:88px 0;position:relative;overflow:hidden;}
+.cta-sec::before{content:'';position:absolute;left:-180px;top:-180px;width:680px;height:680px;border-radius:50%;background:radial-gradient(ellipse,rgba(10,81,232,.35) 0%,transparent 65%);pointer-events:none;}
+.cta-sec::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.cta-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 64px;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center;}
+@media(max-width:768px){.cta-inner{grid-template-columns:1fr;gap:40px;padding:0 24px;}}
+.cta-inner h2{font-family:var(--font-tight);font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:16px;text-align:left;}
+.cta-inner p{font-size:17px;color:rgba(255,255,255,.7);margin-bottom:0;text-align:left;}
+.cta-btns{display:flex;align-items:center;justify-content:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:0;}
+.btn-white{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#06182d;background:#fff;border:none;border-radius:4px;padding:13px 28px;cursor:pointer;text-decoration:none;transition:background .15s;}
+.btn-white:hover{background:#eef4fd;}
+.cta-talk-sales{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s;}
+.cta-talk-sales:hover{color:#fff;}
+.cta-compliance{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:.1em;font-family:ui-monospace,monospace;text-transform:uppercase;}
+.cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:280px;}
+
+/* ── FOOTER ── */
+.xox-footer{background:#fff;border-top:1px solid #e2e5ea;font-family:'Inter',sans-serif;}
+.xox-footer__wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+.xox-footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;padding:52px 0 40px;border-bottom:1px solid #e2e5ea;}
+.xox-footer__brand-logo{margin-bottom:14px;}
+.xox-footer__brand-logo img{height:22px;width:auto;opacity:.85;}
+.xox-footer__brand-desc{font-size:13px;color:#8092a0;line-height:1.65;max-width:220px;margin-bottom:16px;}
+.xox-footer__badges{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.xox-footer__badge{font-size:10px;font-weight:600;color:#8092a0;border:1px solid #e2e5ea;border-radius:4px;padding:2px 8px;white-space:nowrap;}
+.xox-footer__social{display:flex;gap:6px;}
+.xox-footer__social-link{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e5ea;border-radius:6px;color:#8092a0;transition:background .13s,color .13s,border-color .13s;text-decoration:none;}
+.xox-footer__social-link:hover{background:#f5f6f8;color:#06182d;border-color:#c6ccd6;}
+.xox-footer__col-title{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8092a0;margin-bottom:14px;}
+.xox-footer__col ul{list-style:none;padding:0;margin:0;}
+.xox-footer__col ul li{margin-bottom:9px;}
+.xox-footer__col ul li a{font-size:13px;color:#4c5a70;text-decoration:none;transition:color .13s;}
+.xox-footer__col ul li a:hover{color:#06182d;}
+.xox-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0;flex-wrap:wrap;}
+.xox-footer__copy{font-size:12px;color:#8092a0;}
+.xox-footer__legal{display:flex;gap:20px;}
+.xox-footer__legal a{font-size:12px;color:#8092a0;text-decoration:none;transition:color .13s;}
+.xox-footer__legal a:hover{color:#06182d;}
+
+/* Responsive */
+@media(max-width:960px){
+  .xox-footer__grid{grid-template-columns:1fr 1fr;gap:28px;}
+}
+@media(max-width:600px){
+  .xox-footer__grid{grid-template-columns:1fr;}
+  .xox-footer__bottom{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:900px){
+  .hero__inner{grid-template-columns:1fr;}
+  .features-layout{grid-template-columns:1fr;gap:40px;}
+  .features-layout.reverse{direction:ltr;}
+  .steps-grid{grid-template-columns:1fr;}
+  .steps-grid::before{display:none;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:36px;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ─────────────────────────── NAV ─────────────────────────── -->
+<header id="xox-header">
+  <div class="xox-nav-pill" id="xox-nav-pill">
+    <div class="xox-nav-inner">
+      <a class="xox-nav-logo" href="https://www.xoxoday.com/empuls" aria-label="Empuls home">
+        <img src="https://cdn.prod.website-files.com/698c1e74d185818c6f9550af/69a02639d139a98eb39629bb_XOXODAY-DARK-LOGOS.svg" alt="Empuls" />
+      </a>
+      <ul class="xox-nav-links" role="menubar">
+        <li>
+          <a class="xox-nav-link" href="#" role="menuitem">
+            Platform
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="xox-drop xox-drop--mega">
+            <div class="xox-dcol">
+              <div class="xox-dcol-title">Recognition &amp; Rewards</div>
+              <a class="xox-ditem" href="reward_and_recognition_v2.html"><div><div class="xox-ditem__name">Recognition Overview</div></div></a>
+              <a class="xox-ditem" href="empuls-spot-awards.html"><div><div class="xox-ditem__name">Spot Awards</div></div></a>
+              <a class="xox-ditem" href="empuls-nominations.html"><div><div class="xox-ditem__name">Nomination Awards</div></div></a>
+              <a class="xox-ditem" href="empuls-jury-awards.html"><div><div class="xox-ditem__name">Jury Awards</div></div></a>
+              <a class="xox-ditem" href="empuls-reward-codes.html"><div><div class="xox-ditem__name">Reward Codes</div></div></a>
+            </div>
+            <div class="xox-dcol">
+              <div class="xox-dcol-title">Celebrations</div>
+              <a class="xox-ditem xox-ditem--active" href="empuls-celebrations.html"><div><div class="xox-ditem__name">Celebrations Overview</div></div></a>
+              <a class="xox-ditem" href="empuls-service-awards.html"><div><div class="xox-ditem__name">Service Awards</div></div></a>
+              <a class="xox-ditem" href="empuls-life-events.html"><div><div class="xox-ditem__name">Life Events</div></div></a>
+              <a class="xox-ditem" href="empuls-onboarding.html"><div><div class="xox-ditem__name">Onboarding</div></div></a>
+              <a class="xox-ditem" href="empuls-career-milestones.html"><div><div class="xox-ditem__name">Career Milestones</div></div></a>
+              <a class="xox-ditem" href="empuls-festive-celebrations.html"><div><div class="xox-ditem__name">Festive Celebrations</div></div></a>
+            </div>
+            <div class="xox-dcol">
+              <div class="xox-dcol-title">Engagement</div>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/social-intranet-software"><div><div class="xox-ditem__name">Engagement Overview</div></div></a>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/employee-survey-tool"><div><div class="xox-ditem__name">Surveys &amp; Feedback</div></div></a>
+              <div class="xox-dcol-title" style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f2f5;border-bottom:none;margin-bottom:4px;">Perks &amp; Benefits</div>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/perks-and-benefits"><div><div class="xox-ditem__name">Benefits Overview</div></div></a>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/employee-gifting"><div><div class="xox-ditem__name">Employee Gifting</div></div></a>
+            </div>
+            <div class="xox-dcol">
+              <div class="xox-dcol-title">Platform Tools</div>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/ai-copilot"><div><div class="xox-ditem__name">Empuls Copilot</div></div></a>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/integrations"><div><div class="xox-ditem__name">Integrations</div></div></a>
+              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/rewards-marketplace"><div><div class="xox-ditem__name">Rewards Marketplace</div></div></a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a class="xox-nav-link" href="#" role="menuitem">
+            Solutions
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="xox-drop xox-drop--md">
+            <div class="xox-dcol">
+              <div class="xox-dcol-title">By Industry</div>
+              <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/solutions-by-industry">Healthcare &amp; Pharma</a>
+              <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/solutions-by-industry">IT, BPO &amp; Consulting</a>
+              <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/solutions-by-industry">Financial Services</a>
+            </div>
+            <div class="xox-dcol">
+              <div class="xox-dcol-title">By Role</div>
+              <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/solutions-by-role">HR Leaders</a>
+              <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/solutions-by-role">C-Suite</a>
+              <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/solutions-by-role">Finance &amp; Procurement</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a class="xox-nav-link" href="#" role="menuitem">
+            Resources
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="xox-drop xox-drop--sm">
+            <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/casestudies">Customers</a>
+            <a class="xox-drop-link" href="https://blog.xoxoday.com/empuls/">Blog</a>
+            <a class="xox-drop-link" href="https://help.empuls.xoxoday.com/en/">Help Center</a>
+            <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/why-empuls">Why Empuls?</a>
+          </div>
+        </li>
+        <li><a class="xox-nav-link" href="https://www.xoxoday.com/empuls/plans">Plans</a></li>
+      </ul>
+      <div class="xox-nav-ctas">
+        <a href="https://www.xoxoday.com/empuls/demo" class="xox-btn-demo">Schedule demo</a>
+        <a href="https://empulsaccounts.xoxoday.com/chef/sso/direct/redirect/empuls/authorize/timestamp" class="xox-btn-redeem">Redeem Rewards</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────────── HERO ─────────────────────────── -->
+<section class="hero" data-nav="light">
+  <div class="wrap">
+    <div class="hero__inner">
+      <!-- Left: copy -->
+      <div class="hero__copy reveal">
+        <div class="hero__eyebrow">
+          <div class="hero__eyebrow-dot"></div>
+          <span>Celebrations &nbsp;·&nbsp; Part of Empuls</span>
+        </div>
+        <h1>Make every milestone<br>unforgettable.</h1>
+        <p class="hero__sub">From day one to decade ten — Empuls automates thoughtful celebrations for every stage of the employee journey. Personal, timely, and genuinely felt.</p>
+        <div class="hero__ctas">
+          <a class="btn-primary" href="https://www.xoxoday.com/empuls/demo">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn-ghost" href="#how-it-works">See how it works</a>
+        </div>
+        <div class="hero__trust">
+          <div class="hero__trust-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#0a51e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1L2 3.5V6.5C2 9.8 4.1 12.8 7 13.5C9.9 12.8 12 9.8 12 6.5V3.5L7 1Z"/><path d="M5 7L6.5 8.5L9 5.5"/></svg>
+            SOC 2 Certified
+          </div>
+          <div class="hero__trust-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#0a51e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5"/><path d="M5 7L6.5 8.5L9 5.5"/></svg>
+            175+ countries
+          </div>
+          <div class="hero__trust-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="#f6b847" stroke="#f6b847" stroke-width="1"><path d="M7 1l1.8 3.6L13 5.3l-3 2.9.7 4.1L7 10.3l-3.7 2 .7-4.1-3-2.9 4.2-.7L7 1z"/></svg>
+            4.8 &middot; 2,000+ reviews
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: hero visual -->
+      <div class="hero__visual reveal reveal-d2">
+        <div class="hv-scene">
+          <div class="hv-window">
+            <div class="hv-chrome">
+              <div class="hv-dots">
+                <span class="hv-dot hv-dot-r"></span>
+                <span class="hv-dot hv-dot-y"></span>
+                <span class="hv-dot hv-dot-g"></span>
+              </div>
+              <div class="hv-urlbar">
+                <svg width="10" height="11" viewBox="0 0 10 11" fill="none"><rect x="1" y="4.5" width="8" height="6" rx="1.5" stroke="#aaa" stroke-width="1.2"/><path d="M3 4.5V3a2 2 0 0 1 4 0v1.5" stroke="#aaa" stroke-width="1.2"/></svg>
+                app.empuls.io / celebrations
+              </div>
+            </div>
+            <div style="background:#fff;border-bottom:1px solid #f0f2f5;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:#06182d;">Today's Celebrations</div>
+                <div style="font-size:10px;color:#8092a0;margin-top:1px;">3 milestones happening today</div>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <div style="background:#0a51e8;border-radius:6px;padding:4px 10px;font-size:10.5px;font-weight:600;color:#fff;">Today</div>
+                <div style="background:#f5f6f8;border:1px solid #e2e5ea;border-radius:6px;padding:4px 10px;font-size:10.5px;font-weight:500;color:#8092a0;">Upcoming</div>
+              </div>
+            </div>
+            <div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px;">
+              <!-- Birthday card -->
+              <div style="background:#fff;border-radius:10px;border:1px solid #e2e5ea;overflow:hidden;box-shadow:0 1px 3px rgba(6,24,45,.05);">
+                <div style="background:linear-gradient(135deg,#fef9ee 0%,#fff8f0 100%);padding:10px 12px;border-bottom:1px solid #fde68a;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:20px;">🎂</span>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#92400e;">Birthday Today</div>
+                    <div style="font-size:10px;color:#b45309;">Priya Kapoor &middot; Engineering</div>
+                  </div>
+                  <div style="margin-left:auto;background:#f97316;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;">AUTO</div>
+                </div>
+                <div style="padding:9px 12px;display:flex;align-items:center;justify-content:space-between;">
+                  <div style="font-size:11px;color:#4c5a70;">12 team wishes on her wishboard</div>
+                  <div style="font-size:10.5px;font-weight:600;color:#0a51e8;cursor:pointer;">View →</div>
+                </div>
+              </div>
+              <!-- Anniversary card -->
+              <div style="background:#fff;border-radius:10px;border:1px solid #e2e5ea;overflow:hidden;box-shadow:0 1px 3px rgba(6,24,45,.05);">
+                <div style="background:linear-gradient(135deg,#eff6ff 0%,#f0f9ff 100%);padding:10px 12px;border-bottom:1px solid #bae0fd;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:20px;">🏆</span>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#1e40af;">5-Year Anniversary</div>
+                    <div style="font-size:10px;color:#3b82f6;">Rahul Mehta &middot; Product</div>
+                  </div>
+                  <div style="margin-left:auto;background:#0a51e8;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;">AUTO</div>
+                </div>
+                <div style="padding:9px 12px;display:flex;align-items:center;justify-content:space-between;">
+                  <div style="font-size:11px;color:#4c5a70;">₹5,000 catalog credit + certificate sent</div>
+                  <div style="display:flex;align-items:center;gap:3px;"><div style="width:5px;height:5px;border-radius:50%;background:#22c55e;"></div><div style="font-size:10px;color:#16a34a;font-weight:600;">Delivered</div></div>
+                </div>
+              </div>
+              <!-- New joiner -->
+              <div style="background:#fff;border-radius:10px;border:1px solid #e2e5ea;overflow:hidden;box-shadow:0 1px 3px rgba(6,24,45,.05);">
+                <div style="background:linear-gradient(135deg,#f0fdf4 0%,#ecfdf5 100%);padding:10px 12px;border-bottom:1px solid #bbf7d0;display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:20px;">👋</span>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#166534;">New Joiner</div>
+                    <div style="font-size:10px;color:#16a34a;">Neha Sharma &middot; Design</div>
+                  </div>
+                  <div style="margin-left:auto;background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;">AUTO</div>
+                </div>
+                <div style="padding:9px 12px;">
+                  <div style="font-size:11px;color:#4c5a70;">Welcome gift ready &middot; ₹1,000 catalog credit</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:#f8f9fb;border-top:1px solid #f0f2f5;padding:8px 14px;display:flex;align-items:center;gap:6px;">
+              <div style="width:7px;height:7px;border-radius:50%;background:#22c55e;"></div>
+              <div style="font-size:10.5px;color:#4c5a70;">All triggered automatically from HRIS &middot; Zero HR effort</div>
+            </div>
+          </div>
+
+          <!-- Floating: AI assist -->
+          <div class="hv-float hv-float-ai">
+            <div class="hv-float-icon hv-float-icon-ai">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a51e8" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            </div>
+            <div>
+              <div class="hv-float-label">AI&nbsp;Copilot&nbsp;&middot;&nbsp;suggested</div>
+              <div class="hv-float-text">"Priya's birthday — 8 days away. Wishboard auto-created."</div>
+            </div>
+          </div>
+
+          <!-- Floating: delivery toast -->
+          <div class="hv-float hv-float-toast">
+            <div class="hv-toast-icon">🎉</div>
+            <div>
+              <div class="hv-toast-title">Celebration sent!</div>
+              <div class="hv-toast-sub">Birthday &middot; ₹500 gift credit</div>
+            </div>
+          </div>
+
+          <!-- Floating: stats -->
+          <div class="hv-float hv-float-stats">
+            <div class="hv-stats-row">
+              <div class="hv-stat-item">
+                <div class="hv-stat-val hv-stat-green">100%</div>
+                <div class="hv-stat-lbl">milestones hit</div>
+              </div>
+              <div class="hv-stat-sep"></div>
+              <div class="hv-stat-item">
+                <div class="hv-stat-val">0</div>
+                <div class="hv-stat-lbl">HR effort</div>
+              </div>
+              <div class="hv-stat-sep"></div>
+              <div class="hv-stat-item">
+                <div class="hv-stat-val hv-stat-amber">4.8★</div>
+                <div class="hv-stat-lbl">satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── LOGOS STRIP ───────────────────────── -->
+<section class="logos-sec" data-nav="light">
+  <div class="logos-label">Trusted by 1,400+ companies worldwide</div>
+  <div class="logos-track-wrap">
+    <div class="logos-track">
+      <!-- Set 1 -->
+      <div class="logo-item"><div class="logo-item__icon">🔵</div><span class="logo-item__name">Bosch</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟢</div><span class="logo-item__name">Tech Mahindra</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟠</div><span class="logo-item__name">Wipro</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔷</div><span class="logo-item__name">CGI</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟣</div><span class="logo-item__name">Kennametal</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔴</div><span class="logo-item__name">Luminous</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟡</div><span class="logo-item__name">Western Digital</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔵</div><span class="logo-item__name">Mahindra</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟤</div><span class="logo-item__name">Freshworks</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟢</div><span class="logo-item__name">Capgemini</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔷</div><span class="logo-item__name">Infosys BPM</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟠</div><span class="logo-item__name">HCL Tech</span></div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="logo-item"><div class="logo-item__icon">🔵</div><span class="logo-item__name">Bosch</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟢</div><span class="logo-item__name">Tech Mahindra</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟠</div><span class="logo-item__name">Wipro</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔷</div><span class="logo-item__name">CGI</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟣</div><span class="logo-item__name">Kennametal</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔴</div><span class="logo-item__name">Luminous</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟡</div><span class="logo-item__name">Western Digital</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔵</div><span class="logo-item__name">Mahindra</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟤</div><span class="logo-item__name">Freshworks</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟢</div><span class="logo-item__name">Capgemini</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🔷</div><span class="logo-item__name">Infosys BPM</span></div>
+      <div class="logo-item"><div class="logo-item__icon">🟠</div><span class="logo-item__name">HCL Tech</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── PLATFORM CAPABILITIES (Celebration Moments) ──────────────── -->
+<section class="features-sec" data-nav="light" id="moments">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:64px;">
+      <span class="section-label">Celebration Moments</span>
+      <h2 class="section-title">Every stage of the journey, celebrated.</h2>
+      <p class="section-body" style="max-width:580px;">Set up once. Empuls handles every milestone automatically — personal, timely, and genuinely felt by the people who receive it.</p>
+    </div>
+
+    <!-- Block 1: Onboarding -->
+    <div class="features-layout reveal">
+      <div>
+        <div style="margin-bottom:10px;"><span class="pill pill-green">👋 Onboarding</span></div>
+        <h3 class="feat-h3">Welcome them right, before they even log in.</h3>
+        <p class="feat-p">Auto-trigger welcome gifts and personalized messages the moment a new hire is added to your HRIS. No manual effort, no missed starts.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Auto-triggered on joining date</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Branded welcome kits + catalog credits</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personalized message with employee name</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Delivered before they access their account</li>
+        </ul>
+      </div>
+      <div class="features-visual reveal reveal-d1" style="background:#fff;padding:0;overflow:hidden;">
+        <div style="font-family:Inter,sans-serif;background:#fff;width:100%;">
+          <div style="background:linear-gradient(135deg,#06182d 0%,#0d2d4f 100%);padding:22px 20px;text-align:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(10,81,232,.3),transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-size:32px;margin-bottom:8px;">🎉</div>
+            <div style="position:relative;font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;">Welcome aboard, Neha!</div>
+            <div style="position:relative;font-size:11px;color:rgba(255,255,255,.55);">We're thrilled to have you on the team.</div>
+          </div>
+          <div style="padding:14px 16px;">
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px;margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+              <div style="font-size:22px;">🎁</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#06182d;">Your day-one gift is ready</div>
+                <div style="font-size:10.5px;color:#16a34a;margin-top:2px;">₹1,000 catalog credit — pick what you love</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;">
+              <div style="background:#f5f6f8;border-radius:6px;padding:7px 6px;text-align:center;"><div style="font-size:16px;">☕</div><div style="font-size:9px;color:#4c5a70;margin-top:2px;">Coffee</div></div>
+              <div style="background:#f5f6f8;border-radius:6px;padding:7px 6px;text-align:center;border:1.5px solid #0a51e8;"><div style="font-size:16px;">🎵</div><div style="font-size:9px;color:#0a51e8;font-weight:600;margin-top:2px;">Music</div></div>
+              <div style="background:#f5f6f8;border-radius:6px;padding:7px 6px;text-align:center;"><div style="font-size:16px;">🛍️</div><div style="font-size:9px;color:#4c5a70;margin-top:2px;">Shopping</div></div>
+            </div>
+            <button style="width:100%;background:#0a51e8;color:#fff;border:none;border-radius:5px;padding:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;">Redeem Your Gift →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 2: Birthdays (reversed) -->
+    <div class="features-layout reverse reveal">
+      <div>
+        <div style="margin-bottom:10px;"><span class="pill pill-amber">🎂 Birthdays</span></div>
+        <h3 class="feat-h3">Every birthday lands before the morning starts.</h3>
+        <p class="feat-p">Auto-scheduled greetings and reward credits, with a peer wishboard where the team leaves notes and GIFs. Nobody forgotten, nobody underwhelmed.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>HRIS-triggered from date of birth</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personalized reward credit included</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Peer wishboard with AI-assisted messages &amp; GIFs</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Manager notified ahead of the date</li>
+        </ul>
+      </div>
+      <div class="features-visual reveal" style="background:#fff;padding:0;overflow:hidden;">
+        <div style="font-family:Inter,sans-serif;background:#fff;width:100%;">
+          <div style="background:#fef9ee;border-bottom:1px solid #fde68a;padding:12px 14px;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:20px;">🎂</span>
+            <div><div style="font-size:13px;font-weight:700;color:#92400e;">Priya's Birthday!</div><div style="font-size:10.5px;color:#b45309;">Leave her a wish below</div></div>
+            <div style="margin-left:auto;font-size:10px;color:#b45309;font-weight:600;">14 wishes</div>
+          </div>
+          <div style="padding:10px 14px;display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">AK</div>
+              <div style="background:#f5f6f8;border-radius:8px;padding:7px 10px;flex:1;"><div style="font-size:10.5px;font-weight:600;color:#06182d;margin-bottom:2px;">Arjun Kumar</div><div style="font-size:10px;color:#4c5a70;">Happy Birthday Priya! 🎉 Wishing you an amazing year ahead!</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#059669;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">SM</div>
+              <div style="background:#f5f6f8;border-radius:8px;padding:7px 10px;flex:1;"><div style="font-size:10.5px;font-weight:600;color:#06182d;margin-bottom:2px;">Shreya Malhotra</div><div style="font-size:10px;color:#4c5a70;">You make the team better every single day. Enjoy your day! 🥳</div></div>
+            </div>
+          </div>
+          <div style="padding:8px 14px;border-top:1px solid #f0f2f5;display:flex;gap:6px;">
+            <div style="flex:1;background:#f5f6f8;border:1px solid #e2e5ea;border-radius:6px;padding:7px 10px;font-size:10.5px;color:#8092a0;">Write a wish... ✨ AI assist</div>
+            <div style="background:#fef9ee;border:1px solid #fde68a;border-radius:6px;padding:7px 10px;font-size:11px;cursor:pointer;">GIF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 3: Work Anniversaries -->
+    <div class="features-layout reveal">
+      <div>
+        <div style="margin-bottom:10px;"><span class="pill pill-purple">🏆 Work Anniversaries</span></div>
+        <h3 class="feat-h3">Celebrate tenure with rewards that match the milestone.</h3>
+        <p class="feat-p">Tiered awards at 1, 3, 5, and 10 years — triggered automatically, delivered with a downloadable certificate and catalog credit that grows with seniority.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>HRIS-triggered at every milestone year</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tiered reward value by tenure</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Downloadable branded certificate</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Digital yearbook with team's best wishes</li>
+        </ul>
+      </div>
+      <div class="features-visual reveal reveal-d1" style="background:#fff;padding:0;overflow:hidden;">
+        <div style="font-family:Inter,sans-serif;background:#fff;width:100%;">
+          <div style="background:linear-gradient(135deg,#06182d 0%,#0d2d4f 100%);padding:20px;text-align:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(246,184,71,.2),transparent 70%);"></div>
+            <div style="position:relative;">
+              <div style="font-size:28px;margin-bottom:6px;">🏆</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,184,71,.8);margin-bottom:4px;">Service Award</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:-.03em;">5 Years</div>
+              <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;">Rahul Mehta · Joined Jan 2020</div>
+            </div>
+          </div>
+          <div style="padding:14px 16px;">
+            <div style="background:#eff6ff;border:1px solid #bae0fd;border-radius:8px;padding:10px 12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
+              <div>
+                <div style="font-size:11px;font-weight:700;color:#1e40af;">Reward Credited</div>
+                <div style="font-size:10.5px;color:#3b82f6;margin-top:1px;">Choose from 20,000+ options</div>
+              </div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;color:#0a51e8;">₹5,000</div>
+            </div>
+            <div style="display:flex;gap:6px;">
+              <div style="flex:1;border:1px solid #e2e5ea;border-radius:6px;padding:8px 10px;text-align:center;cursor:pointer;"><div style="font-size:14px;margin-bottom:3px;">📜</div><div style="font-size:10px;color:#4c5a70;font-weight:500;">Download<br/>Certificate</div></div>
+              <div style="flex:1;border:1px solid #e2e5ea;border-radius:6px;padding:8px 10px;text-align:center;cursor:pointer;"><div style="font-size:14px;margin-bottom:3px;">📖</div><div style="font-size:10px;color:#4c5a70;font-weight:500;">View<br/>Yearbook</div></div>
+              <div style="flex:1;background:#0a51e8;border-radius:6px;padding:8px 10px;text-align:center;cursor:pointer;"><div style="font-size:14px;margin-bottom:3px;">🎁</div><div style="font-size:10px;color:#fff;font-weight:600;">Redeem<br/>Reward</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 4: Festivals (reversed) -->
+    <div class="features-layout reverse reveal">
+      <div>
+        <div style="margin-bottom:10px;"><span class="pill pill-amber">🪔 Festivals &amp; Holidays</span></div>
+        <h3 class="feat-h3">One campaign for your entire global team.</h3>
+        <p class="feat-p">Schedule festive campaigns for Diwali, Eid, Christmas, and more. Region-specific rewards auto-apply — one setup covers your whole workforce, everywhere.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pre-scheduled by date and region</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Local catalog auto-applied by country</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Non-monetary e-cards + monetary rewards</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bulk delivery to thousands instantly</li>
+        </ul>
+      </div>
+      <div class="features-visual reveal" style="background:#fff;padding:0;overflow:hidden;">
+        <div style="font-family:Inter,sans-serif;background:#fff;width:100%;">
+          <div style="background:#f8f9fb;border-bottom:1px solid #eaecf0;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:13px;font-weight:700;color:#06182d;">Festival Campaign</div>
+            <div style="background:#fef9ee;border:1px solid #fde68a;border-radius:10px;padding:2px 8px;font-size:10px;font-weight:700;color:#b45309;">Scheduled</div>
+          </div>
+          <div style="padding:14px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <div style="font-size:28px;">🪔</div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:#06182d;">Diwali 2025</div>
+                <div style="font-size:10.5px;color:#8092a0;">Sending Oct 20 · 9:00 AM IST</div>
+              </div>
+            </div>
+            <div style="background:#f5f6f8;border-radius:8px;padding:10px 12px;margin-bottom:10px;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:11px;font-weight:600;color:#06182d;">Recipients</div>
+                <div style="font-size:11px;font-weight:700;color:#0a51e8;">1,482 employees</div>
+              </div>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <div style="background:#fff;border:1px solid #e2e5ea;border-radius:5px;padding:3px 8px;font-size:10px;font-weight:500;color:#4c5a70;">🇮🇳 India (1,104)</div>
+                <div style="background:#fff;border:1px solid #e2e5ea;border-radius:5px;padding:3px 8px;font-size:10px;font-weight:500;color:#4c5a70;">🇺🇸 US (241)</div>
+                <div style="background:#fff;border:1px solid #e2e5ea;border-radius:5px;padding:3px 8px;font-size:10px;font-weight:500;color:#4c5a70;">🇬🇧 UK (137)</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;background:#eff6ff;border:1px solid #bae0fd;border-radius:8px;padding:10px 12px;">
+              <div>
+                <div style="font-size:11px;font-weight:600;color:#1e40af;">Reward per employee</div>
+                <div style="font-size:10.5px;color:#3b82f6;margin-top:1px;">Local catalog auto-applied</div>
+              </div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;color:#0a51e8;">₹500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 5: Life Events -->
+    <div class="features-layout reveal" style="margin-bottom:0;">
+      <div>
+        <div style="margin-bottom:10px;"><span class="pill pill-purple">🌟 Life Events</span></div>
+        <h3 class="feat-h3">Show up for moments that happen outside of work.</h3>
+        <p class="feat-p">Recognize weddings, new babies, graduations, and personal milestones with curated gifts. Show employees you care about their whole life, not just their work life.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Manual or manager-triggered</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Marriage, new baby, graduation &amp; more</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personalized message + catalog credit</li>
+          <li class="feat-bullet"><span class="feat-bullet-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Budget-controlled per occasion type</li>
+        </ul>
+      </div>
+      <div class="features-visual reveal reveal-d1" style="background:#fff;padding:0;overflow:hidden;">
+        <div style="font-family:Inter,sans-serif;background:#fff;width:100%;">
+          <div style="background:#f8f9fb;border-bottom:1px solid #eaecf0;padding:12px 14px;">
+            <div style="font-size:13px;font-weight:700;color:#06182d;margin-bottom:1px;">Send a Life Event Gift</div>
+            <div style="font-size:10.5px;color:#8092a0;">Recognize a personal milestone</div>
+          </div>
+          <div style="padding:14px;">
+            <div style="font-size:11px;font-weight:700;color:#06182d;margin-bottom:7px;">Occasion</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:12px;">
+              <div style="border:1.5px solid #0a51e8;background:#eff6ff;border-radius:7px;padding:7px 10px;display:flex;align-items:center;gap:6px;cursor:pointer;"><span style="font-size:15px;">💍</span><span style="font-size:11.5px;font-weight:600;color:#1e40af;">Marriage</span></div>
+              <div style="border:1px solid #e2e5ea;border-radius:7px;padding:7px 10px;display:flex;align-items:center;gap:6px;cursor:pointer;"><span style="font-size:15px;">👶</span><span style="font-size:11.5px;color:#4c5a70;">New Baby</span></div>
+              <div style="border:1px solid #e2e5ea;border-radius:7px;padding:7px 10px;display:flex;align-items:center;gap:6px;cursor:pointer;"><span style="font-size:15px;">🎓</span><span style="font-size:11.5px;color:#4c5a70;">Graduation</span></div>
+              <div style="border:1px solid #e2e5ea;border-radius:7px;padding:7px 10px;display:flex;align-items:center;gap:6px;cursor:pointer;"><span style="font-size:15px;">🏠</span><span style="font-size:11.5px;color:#4c5a70;">New Home</span></div>
+            </div>
+            <div style="font-size:11px;font-weight:700;color:#06182d;margin-bottom:5px;">Recipient</div>
+            <div style="background:#f5f6f8;border:1px solid #e2e5ea;border-radius:6px;padding:8px 11px;font-size:12px;color:#06182d;margin-bottom:10px;display:flex;align-items:center;gap:8px;"><div style="width:22px;height:22px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">RS</div>Riya Sharma</div>
+            <button style="width:100%;background:#0a51e8;color:#fff;border:none;border-radius:5px;padding:9px;font-size:12px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;">Send ₹2,500 Gift →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── HOW IT WORKS ───────────────────────── -->
+<section class="how-sec" data-nav="light" id="how-it-works">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Built to run without you watching it.</h2>
+      <p class="section-body" style="text-align:center;max-width:560px;margin:0 auto 0;">Connect your HRIS, configure your celebration programs once, and Empuls handles every milestone automatically — personalized, on time, at any scale.</p>
+    </div>
+    <div class="steps-grid reveal reveal-d1">
+      <div class="step step-card">
+        <div style="font-size:28px;margin-bottom:12px;">🔗</div>
+        <div class="step__num"><span>01</span></div>
+        <h3>Connect your HRIS. Empuls does the rest.</h3>
+        <p>Birthdays and joining dates in your HRIS become automatic celebration triggers. The moment data syncs, every milestone is queued — no manual scheduling, no missed moments. Syncs with Workday, SAP, BambooHR, Darwinbox &amp; more.</p>
+      </div>
+      <div class="step step-card">
+        <div style="font-size:28px;margin-bottom:12px;">🎉</div>
+        <div class="step__num"><span>02</span></div>
+        <h3>Wishboards that turn milestones into memories.</h3>
+        <p>Every birthday and anniversary gets a shared wishboard where teammates leave notes, GIFs, and photos. An AI assistant helps peers write something genuinely personal — not just a thumbs-up emoji. Works on Slack, Teams, email &amp; mobile.</p>
+      </div>
+      <div class="step step-card">
+        <div style="font-size:28px;margin-bottom:12px;">🎁</div>
+        <div class="step__num"><span>03</span></div>
+        <h3>10M+ rewards. Every taste. Every country.</h3>
+        <p>From a coffee gift card to a vacation experience — employees choose from 10 million options across 30+ categories in their currency, from brands they know. Monetary or non-monetary, your call. 175+ countries, local currencies auto-applied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── STATS BAND ───────────────────────── -->
+<section class="stats-sec" data-nav="dark">
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-num">10<span>M+</span></div>
+      <div class="stat-lbl">Reward options across 30+ categories</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">175<span>+</span></div>
+      <div class="stat-lbl">Countries with local catalogs &amp; currencies</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">250<span>+</span></div>
+      <div class="stat-lbl">Integrations with HRIS, comms &amp; payroll tools</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">0</div>
+      <div class="stat-lbl">Manual HR effort after initial setup</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── CUSTOMER STORY ───────────────────────── -->
+<section class="story-sec" data-nav="light">
+  <div class="story-inner">
+    <p class="story-tag">Customer story</p>
+    <div class="story-grid reveal">
+      <div>
+        <blockquote class="story-quote">&ldquo;Empuls made our celebration programs feel personal even at 18,000 employees. Every birthday, every anniversary — handled automatically, the way our culture actually needed.&rdquo;</blockquote>
+        <div class="story-attr">
+          <div class="story-avatar">MK</div>
+          <div>
+            <div class="story-name">Meera Krishnan</div>
+            <div class="story-role">Head of Employee Experience &middot; Tech Mahindra</div>
+          </div>
+        </div>
+      </div>
+      <div class="story-stats reveal reveal-d1">
+        <div class="story-stat-item">
+          <div class="story-stat-num">3<span style="color:#0a51e8;">x</span></div>
+          <div class="story-stat-label">More employees receiving recognition on their milestone</div>
+        </div>
+        <div class="story-stat-item">
+          <div class="story-stat-num">85<span style="color:#0a51e8;">%</span></div>
+          <div class="story-stat-label">Managers say celebrations improved team morale</div>
+        </div>
+        <div class="story-stat-item">
+          <div class="story-stat-num">40<span style="color:#0a51e8;">%</span></div>
+          <div class="story-stat-label">Reduction in HR effort for gifting and milestone programs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── INTEGRATIONS ───────────────────────── -->
+<section class="integrations-sec" data-nav="light">
+  <div class="wrap">
+    <div style="text-align:center;" class="reveal">
+      <span class="section-label">Works everywhere</span>
+      <h2 class="section-title">Celebrations where your teams already work</h2>
+      <p class="section-body" style="margin:12px auto 0;text-align:center;max-width:520px;">250+ integrations — HRIS, Slack, Teams, and more — so celebrations fit right into how your team already works.</p>
+    </div>
+    <div class="int-grid reveal reveal-d1">
+      <div class="int-chip"><div class="int-chip__logo">💬</div>Slack</div>
+      <div class="int-chip"><div class="int-chip__logo">🔷</div>Microsoft Teams</div>
+      <div class="int-chip"><div class="int-chip__logo">📊</div>Workday</div>
+      <div class="int-chip"><div class="int-chip__logo">🟢</div>BambooHR</div>
+      <div class="int-chip"><div class="int-chip__logo">🧡</div>SAP SuccessFactors</div>
+      <div class="int-chip"><div class="int-chip__logo">🟣</div>Darwinbox</div>
+      <div class="int-chip"><div class="int-chip__logo">🟡</div>Google Workspace</div>
+      <div class="int-chip"><div class="int-chip__logo">🟠</div>Keka</div>
+      <div class="int-chip"><div class="int-chip__logo">🔴</div>Zoho People</div>
+      <div class="int-chip"><div class="int-chip__logo">🔷</div>SharePoint</div>
+      <div class="int-chip"><div class="int-chip__logo">🟤</div>Oracle HCM</div>
+      <div class="int-chip"><div class="int-chip__logo">📱</div>Mobile App</div>
+    </div>
+    <p class="int-note reveal">And 230+ more integrations. <a href="https://www.xoxoday.com/empuls/integrations">See all integrations →</a></p>
+  </div>
+</section>
+
+<!-- ─────────────────────────── FAQ ─────────────────────────── -->
+<section class="faq-sec" data-nav="light">
+  <div class="faq-inner">
+    <div class="reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list reveal reveal-d1">
+
+      <div class="faq-item open">
+        <div class="faq-q">
+          <span class="faq-q-text">Can Empuls celebrations be set up without IT involvement?</span>
+          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="faq-a"><p>Yes. HR admins configure all celebration programs directly from the Empuls dashboard with no IT dependency. Once your HRIS is connected (a one-time setup that IT handles), all automations — birthdays, anniversaries, onboarding — are managed entirely by HR without any further technical involvement.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">What if an employee's birthday or joining date isn't in our HRIS?</span>
+          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="faq-a"><p>Empuls also supports manual employee profile uploads via CSV, where admins or employees can enter their date of birth or joining date directly. Once the data is in the system, the automation picks it up immediately and queues the relevant celebration. You can also trigger celebrations manually for any employee at any time.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">Can managers personalize the automated gift message before it sends?</span>
+          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="faq-a"><p>Yes. Managers receive a notification before each celebration and can add a personal note, adjust the gift amount (within their budget), or preview the wishboard before it goes out. The default automation still fires on time even if the manager doesn't take any action — so no milestone is ever missed due to a busy calendar.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">What reward options do employees get for their celebration?</span>
+          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="faq-a"><p>Employees receive points credited to their Empuls wallet, which they can redeem from a catalog of 10M+ options — digital gift cards, physical merchandise, travel bookings, experiences, wellness, and charitable donations. Admins can also send non-monetary greetings and celebration cards where budget isn't applicable. All catalog options are auto-localised based on the employee's country.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">How does Empuls handle festivals across different countries and cultures?</span>
+          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="faq-a"><p>Festival campaigns are configured per event with recipient filters by country, department, or custom attributes. When a campaign sends, each employee automatically receives catalog options relevant to their region — for example, Indian employees see Diwali-relevant brands while US employees see holiday-season options. You build the campaign once; Empuls handles the regional differentiation automatically.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">Can I set different reward budgets for different celebration types?</span>
+          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="faq-a"><p>Yes. Each automation rule — birthday, work anniversary, onboarding, festival, life event — has its own reward configuration. Work anniversaries support tiered values by tenure year (e.g., ₹1,000 at year 1, ₹5,000 at year 5, ₹10,000 at year 10). Budgets are tracked in real time across all programs from the admin dashboard.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── CTA ─────────────────────────── -->
+<section class="cta-sec" data-nav="dark">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h2>Make every milestone count.</h2>
+      <p>Set up your first celebration program in under 15 minutes. We&rsquo;ll walk through it live with you on the call.</p>
+    </div>
+    <div class="cta-right">
+      <div class="cta-btns">
+        <a class="btn-white" href="https://www.xoxoday.com/empuls/demo">Book a demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="cta-talk-sales" href="https://www.xoxoday.com/empuls/contact">Talk to sales →</a>
+      </div>
+      <div class="cta-compliance">SOC 2 &middot; ISO 27001 &middot; GDPR &middot; HIPAA-READY</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── FOOTER ─────────────────────────── -->
+<footer class="xox-footer">
+  <div class="xox-footer__wrap">
+    <div class="xox-footer__grid">
+      <div class="xox-footer__brand">
+        <div class="xox-footer__brand-logo">
+          <a href="https://www.xoxoday.com/">
+            <img src="https://cdn.prod.website-files.com/698c1e74d185818c6f9550af/69a02639d139a98eb39629bb_XOXODAY-DARK-LOGOS.svg" alt="Empuls by Xoxoday" />
+          </a>
+        </div>
+        <p class="xox-footer__brand-desc">Rewards, recognition, and loyalty solutions for enterprises that put people first.</p>
+        <div class="xox-footer__badges">
+          <span class="xox-footer__badge">SOC 2</span>
+          <span class="xox-footer__badge">GDPR</span>
+          <span class="xox-footer__badge">ISO 27001</span>
+        </div>
+        <div class="xox-footer__social">
+          <a href="https://linkedin.com/company/xoxoday" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="xox-footer__social-link">
+            <svg width="14" height="14" viewBox="0 0 18 18" fill="currentColor"><path d="M4.5 2.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM1.5 5h3v10h-3V5Zm5 0h3v1.4c.4-.7 1.4-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.9V15h-3v-4.8c0-1.1 0-2.6-1.6-2.6-1.6 0-1.8 1.2-1.8 2.5V15h-3V5Z"/></svg>
+          </a>
+          <a href="https://twitter.com/xoxoDay" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" class="xox-footer__social-link">
+            <svg width="14" height="14" viewBox="0 0 18 18" fill="currentColor"><path d="M13.9 2h2.6l-5.7 6.5L17.5 16h-5.2l-4.1-5.4L3.5 16H.9l6.1-7L.5 2h5.3l3.7 4.9L13.9 2Zm-.9 12.6h1.4L5.1 3.5H3.6l9.4 11.1Z"/></svg>
+          </a>
+          <a href="https://youtube.com/@xoxoday" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="xox-footer__social-link">
+            <svg width="14" height="14" viewBox="0 0 18 18" fill="currentColor"><path d="M16.3 4.6a2 2 0 0 0-1.4-1.4C13.6 3 9 3 9 3s-4.6 0-5.9.2a2 2 0 0 0-1.4 1.4C1.5 5.9 1.5 9 1.5 9s0 3.1.2 4.4a2 2 0 0 0 1.4 1.4c1.3.2 5.9.2 5.9.2s4.6 0 5.9-.2a2 2 0 0 0 1.4-1.4c.2-1.3.2-4.4.2-4.4s0-3.1-.2-4.4ZM7.5 11.5v-5l4 2.5-4 2.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="xox-footer__col">
+        <p class="xox-footer__col-title">Products</p>
+        <ul>
+          <li><a href="https://www.xoxoday.com/empuls">Empuls</a></li>
+          <li><a href="https://www.xoxoday.com/plum">Plum</a></li>
+          <li><a href="https://www.xoxoday.com/loyalife">Loyalife</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/plans">Pricing</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/integrations">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="xox-footer__col">
+        <p class="xox-footer__col-title">Solutions</p>
+        <ul>
+          <li><a href="https://www.xoxoday.com/empuls/rewards-recognition">Employee Recognition</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/rewards-program">Rewards &amp; Incentives</a></li>
+          <li><a href="https://www.xoxoday.com/loyalife">Customer Loyalty</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/sales-incentives">Sales Incentives</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/employee-gifting">Corporate Gifting</a></li>
+        </ul>
+      </div>
+      <div class="xox-footer__col">
+        <p class="xox-footer__col-title">Resources</p>
+        <ul>
+          <li><a href="https://blog.xoxoday.com/empuls/">Blog</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/casestudies">Case Studies</a></li>
+          <li><a href="https://help.empuls.xoxoday.com/en/">Help Center</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/all-features">All Features</a></li>
+          <li><a href="https://www.xoxoday.com/empuls/mobile-app">Mobile App</a></li>
+        </ul>
+      </div>
+      <div class="xox-footer__col">
+        <p class="xox-footer__col-title">Company</p>
+        <ul>
+          <li><a href="https://www.xoxoday.com/about-us">About Us</a></li>
+          <li><a href="https://www.xoxoday.com/careers">Careers</a></li>
+          <li><a href="https://www.xoxoday.com/partners">Partners</a></li>
+          <li><a href="https://www.xoxoday.com/newsroom">Newsroom</a></li>
+          <li><a href="https://www.xoxoday.com/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="xox-footer__bottom">
+      <p class="xox-footer__copy">&copy; 2026 Xoxoday. All rights reserved.</p>
+      <div class="xox-footer__legal">
+        <a href="https://www.xoxoday.com/privacy-policy">Privacy</a>
+        <a href="https://www.xoxoday.com/terms-of-service">Terms</a>
+        <a href="https://www.xoxoday.com/security">Security</a>
+        <a href="https://www.xoxoday.com/cookie-policy">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Reveal on scroll ──
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObs.observe(el));
+window.addEventListener('load', () => {
+  reveals.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+  });
+});
+
+// ── Nav pill scroll state ──
+(function () {
+  var pill = document.querySelector('.xox-nav-pill');
+  if (!pill) return;
+  function tick() {
+    pill.classList.toggle('is-scrolled', window.scrollY > 10);
+  }
+  window.addEventListener('scroll', tick, { passive: true });
+  tick();
+}());
+
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
