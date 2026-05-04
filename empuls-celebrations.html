@@ -10,356 +10,382 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root {
-  --font-display: 'DM Sans', 'Inter', -apple-system, sans-serif;
-  --radius: 10px;
-  --color-navy: #06182d;
-  --color-blue: #0a51e8;
-  --color-blue-dark: #0842bf;
-  --color-amber: #f6b847;
-  --color-body: #4c5a70;
-  --color-muted: #8092a0;
-  --color-border: #e2e5ea;
-  --color-bg-light: #f5f6f8;
-  --ink:        #06182d;
-  --border:     #e2e5ea;
-  --border-2:   rgba(226,229,234,0.6);
-  --white: #ffffff; --off-white: #f7f7f9; --light-bg: #eef4fd;
-  --muted:      #4c5a70;
-  --body-muted: #4c5a70;
-  --brand:      #0a51e8;
-  --brand-l:    #eef4fd;
-  --brand-ll:   #f0f5ff;
-  --brand-mid:  #0842bf;
-  --brand-2:    #0843c0;
-  --accent:     #0a51e8;
-  --ink-2:      #0a1f40;
-  --green: #22c55e; --green-l: #dcfce7;
-  --orange: #f97316; --orange-l: #fff7ed;
-  --blue: #3b82f6; --blue-l: #eff6ff;
+  --dark-300: #0b1728;
+  --dark-200: #1a2b45;
+  --dark-100: #4c5a70;
+  --dark-000: #8092a0;
+  --blue-200: #1D61F6;
+  --blue-100: #a5b4fc;
+  --orange-200: #f97316;
+  --light-000: #f9fafb;
+  --light-100: #f0f2f5;
+  --light-200: #e2e5ea;
+  --light-300: #c6ccd6;
+  --white: #ffffff;
+  --brand: #1D61F6;
+  --brand-l: #eef4fd;
+  --green: #22c55e;
+  --amber: #f59e0b;
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-tight: 'DM Sans', 'Inter', sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
-  --max-w: 1160px; --nav-h: 64px;
-  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-pill:999px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
-  --shadow-md: 0 4px 16px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.06);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,.13), 0 2px 8px rgba(0,0,0,.08);
+  --font-mono: ui-monospace, 'SF Mono', monospace;
+  --max-w: 1160px;
+  --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-2xl: 24px; --r-pill: 999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.14);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);font-size:15px;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;padding-top:68px;}
+body{font-family:var(--font-body);font-size:15px;color:var(--dark-300);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;}
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
-button{font-family:var(--font-body);cursor:pointer;}
+button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
 .wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1);}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-d1{transition-delay:.08s;}.reveal-d2{transition-delay:.16s;}.reveal-d3{transition-delay:.24s;}
 
-/* ── XOX HEADER ── */
-#xox-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:8px 16px 0;pointer-events:none;}
-.xox-nav-pill{pointer-events:auto;max-width:1200px;margin:0 auto;background:transparent;border:1px solid transparent;border-radius:12px;box-shadow:none;padding:0 20px;transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;}
-.xox-nav-pill.is-scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(226,229,234,.7);box-shadow:0 1px 3px rgba(6,24,45,.06),0 4px 24px rgba(6,24,45,.07);}
-.xox-nav-inner{display:flex;align-items:center;height:52px;gap:4px;}
-.xox-nav-logo{flex-shrink:0;margin-right:12px;}
-.xox-nav-logo img{height:22px;width:auto;display:block;}
-.xox-nav-links{display:flex;align-items:center;gap:2px;flex:1;list-style:none;}
-.xox-nav-links li{position:relative;}
-.xox-nav-link{display:flex;align-items:center;gap:3px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:#4c5a70;padding:6px 10px;border-radius:6px;text-decoration:none;transition:color .13s,background .13s;white-space:nowrap;cursor:pointer;background:none;border:none;}
-.xox-nav-link:hover{color:#06182d;background:rgba(6,24,45,.04);}
-.xox-nav-link svg{opacity:.45;flex-shrink:0;transition:transform .18s;}
-.xox-nav-links li:hover > .xox-nav-link svg{transform:rotate(180deg);opacity:.7;}
-.xox-drop{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid #e2e5ea;border-radius:12px;box-shadow:0 8px 32px rgba(6,24,45,.10),0 1px 4px rgba(6,24,45,.06);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:300;}
-.xox-nav-links li:hover > .xox-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}
-.xox-drop--mega{display:grid;grid-template-columns:repeat(4,1fr);width:820px;left:-200px;padding:20px;gap:0;}
-.xox-drop--md{display:grid;grid-template-columns:1fr 1fr;width:420px;left:-60px;padding:16px;}
-.xox-drop--sm{display:flex;flex-direction:column;gap:2px;min-width:190px;padding:8px;}
-.xox-dcol{padding:0 12px;}
-.xox-dcol + .xox-dcol{border-left:1px solid #f0f2f5;}
-.xox-dcol-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8092a0;padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid #f0f2f5;}
-.xox-ditem{display:flex;align-items:flex-start;gap:8px;padding:6px 6px;border-radius:6px;transition:background .12s;margin-bottom:1px;text-decoration:none;cursor:pointer;}
-.xox-ditem:hover{background:#f5f6f8;}
-.xox-ditem--active{background:#eef4fd;}
-.xox-ditem__name{font-size:12.5px;font-weight:500;color:#06182d;line-height:1.3;}
-.xox-ditem--active .xox-ditem__name{color:#0a51e8;}
-.xox-ditem__desc{font-size:11px;color:#8092a0;margin-top:1px;}
-.xox-drop-link{display:block;padding:6px 10px;font-size:13px;font-weight:500;color:#4c5a70;border-radius:5px;transition:background .12s,color .12s;text-decoration:none;}
-.xox-drop-link:hover{background:#f5f6f8;color:#06182d;}
-.xox-nav-ctas{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:auto;}
-.xox-btn-demo{display:inline-flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;background:#0a51e8;color:#fff;border:none;border-radius:6px;padding:8px 16px;text-decoration:none;transition:background .15s,transform .15s;cursor:pointer;white-space:nowrap;}
-.xox-btn-demo:hover{background:#0043c7;transform:translateY(-1px);}
-.xox-btn-redeem{display:inline-flex;align-items:center;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;background:transparent;color:#06182d;border:1px solid #e2e5ea;border-radius:6px;padding:7px 15px;text-decoration:none;transition:background .13s,border-color .13s;white-space:nowrap;}
-.xox-btn-redeem:hover{background:#f5f6f8;border-color:#c6ccd6;}
+/* ── NAV ── */
+#site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:10px 20px 0;pointer-events:none;}
+.nav-pill{pointer-events:auto;max-width:1200px;margin:0 auto;background:transparent;border:1px solid transparent;border-radius:14px;padding:0 20px;transition:background .3s,box-shadow .3s,border-color .3s,backdrop-filter .3s;}
+.nav-pill.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:rgba(226,229,234,.8);box-shadow:0 1px 3px rgba(11,23,40,.06),0 4px 24px rgba(11,23,40,.08);}
+.nav-inner{display:flex;align-items:center;height:54px;gap:4px;}
+.nav-logo{flex-shrink:0;margin-right:14px;}
+.nav-logo img{height:22px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1;list-style:none;}
+.nav-links li{position:relative;}
+.nav-link{display:flex;align-items:center;gap:3px;font-size:13.5px;font-weight:500;color:var(--dark-100);padding:6px 10px;border-radius:8px;transition:color .13s,background .13s;white-space:nowrap;cursor:pointer;}
+.nav-link:hover{color:var(--dark-300);background:rgba(11,23,40,.04);}
+.nav-link svg{opacity:.45;transition:transform .18s;}
+.nav-links li:hover .nav-link svg{transform:rotate(180deg);}
+.nav-drop{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--light-200);border-radius:14px;box-shadow:0 8px 32px rgba(11,23,40,.10);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .16s,transform .16s,visibility .16s;z-index:300;}
+.nav-links li:hover .nav-drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}
+.nav-drop--mega{display:grid;grid-template-columns:repeat(4,1fr);width:820px;left:-200px;padding:20px;gap:0;}
+.nav-drop--md{display:grid;grid-template-columns:1fr 1fr;width:420px;left:-60px;padding:16px;}
+.nav-drop--sm{display:flex;flex-direction:column;gap:2px;min-width:190px;padding:8px;}
+.nav-dcol{padding:0 12px;}
+.nav-dcol+.nav-dcol{border-left:1px solid #f0f2f5;}
+.nav-dcol-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-000);padding-bottom:6px;margin-bottom:4px;border-bottom:1px solid #f0f2f5;}
+.nav-ditem{display:flex;align-items:flex-start;gap:8px;padding:6px;border-radius:6px;transition:background .12s;margin-bottom:1px;text-decoration:none;}
+.nav-ditem:hover{background:var(--light-000);}
+.nav-ditem--active{background:#eef4fd;}
+.nav-ditem__name{font-size:12.5px;font-weight:500;color:var(--dark-300);line-height:1.3;}
+.nav-ditem--active .nav-ditem__name{color:var(--brand);}
+.nav-ditem__desc{font-size:11px;color:var(--dark-000);margin-top:1px;}
+.nav-drop-link{display:block;padding:6px 10px;font-size:13px;font-weight:500;color:var(--dark-100);border-radius:5px;transition:background .12s,color .12s;}
+.nav-drop-link:hover{background:var(--light-000);color:var(--dark-300);}
+.nav-ctas{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0;}
+.btn-demo{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;background:var(--brand);color:#fff;border-radius:8px;padding:8px 16px;transition:background .15s;white-space:nowrap;}
+.btn-demo:hover{background:#1550d4;}
+.btn-redeem{display:inline-flex;align-items:center;font-size:13px;font-weight:500;background:transparent;color:var(--dark-300);border:1px solid var(--light-200);border-radius:8px;padding:7px 15px;transition:background .13s;white-space:nowrap;}
+.btn-redeem:hover{background:var(--light-000);}
 
 /* ── HERO ── */
-.hero{background:#ffffff;padding:88px 0 80px;overflow:hidden;position:relative;}
-.hero::before{content:'';position:absolute;top:-160px;left:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(closest-side,rgba(10,81,232,0.11) 0%,rgba(10,81,232,0.04) 55%,transparent 75%);pointer-events:none;z-index:0;}
-.hero::after{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,184,71,0.16) 0%,rgba(246,184,71,0.05) 55%,transparent 72%);pointer-events:none;z-index:0;}
-.hero .wrap,.hero__inner{position:relative;z-index:1;}
-.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-.hero__eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(10,81,232,.08);border:1px solid rgba(10,81,232,.2);border-radius:999px;padding:5px 14px;margin-bottom:20px;}
-.hero__eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#0a51e8;animation:pulse 2s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
-.hero__eyebrow span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0a51e8;}
-.hero h1{font-family:var(--font-tight);font-size:clamp(38px,5vw,68px);font-weight:700;line-height:1.04;letter-spacing:-.035em;color:#06182d;margin-bottom:20px;}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,#0a51e8,#0043c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero__sub{font-size:17px;line-height:1.65;color:#4c5a70;max-width:480px;margin-bottom:32px;}
-.hero__ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:all .18s;white-space:nowrap;text-decoration:none;}
-.btn-primary{background:#0a51e8;color:#fff;border:none;position:relative;overflow:hidden;}
-.btn-primary:hover{background:#0842bf;box-shadow:0 8px 24px rgba(10,81,232,.28);}
-.hero__visual{position:relative;padding-bottom:40px;}
+.hero{position:relative;overflow:hidden;background:var(--dark-300);min-height:680px;display:flex;align-items:center;padding:120px 0 80px;}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.dot-grid{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:28px 28px;}
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);}
+.blob-1{width:520px;height:520px;top:-160px;left:-120px;background:radial-gradient(circle,rgba(29,97,246,.35) 0%,transparent 70%);}
+.blob-2{width:400px;height:400px;top:60px;right:-60px;background:radial-gradient(circle,rgba(249,115,22,.22) 0%,transparent 70%);}
+.blob-3{width:340px;height:340px;bottom:-100px;left:38%;background:radial-gradient(circle,rgba(139,92,246,.18) 0%,transparent 70%);}
+.hero-inner{position:relative;z-index:2;max-width:var(--max-w);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,97,246,.15);border:1px solid rgba(29,97,246,.3);border-radius:var(--r-pill);padding:5px 14px;margin-bottom:22px;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--blue-200);animation:dot-pulse 2s ease-in-out infinite;}
+@keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+.badge-text{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-100);}
+.hero h1{font-family:var(--font-tight);font-size:clamp(38px,4.8vw,62px);font-weight:700;line-height:1.06;letter-spacing:-.03em;color:#fff;margin-bottom:22px;}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:17px;line-height:1.68;color:rgba(255,255,255,.62);max-width:460px;margin-bottom:34px;}
+.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:6px;background:var(--blue-200);color:#fff;border-radius:10px;padding:13px 26px;font-size:15px;font-weight:600;transition:background .18s,box-shadow .18s;}
+.btn-hero-primary:hover{background:#1550d4;box-shadow:0 8px 28px rgba(29,97,246,.35);}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:6px;background:transparent;color:rgba(255,255,255,.72);border:1.5px solid rgba(255,255,255,.2);border-radius:10px;padding:12px 24px;font-size:15px;font-weight:600;transition:all .18s;}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.4);}
 
-/* ── SECTION ── */
-.section-label{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8092a0;margin-bottom:14px;}
-.section-label::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#0a51e8;flex-shrink:0;animation:plum-dot-ping 2s cubic-bezier(0,0,0.2,1) infinite;}
-@keyframes plum-dot-ping{0%,100%{box-shadow:0 0 0 0 rgba(10,81,232,0.55);}60%{box-shadow:0 0 0 5px rgba(10,81,232,0);}}
-.section-title{font-family:var(--font-tight);font-size:clamp(26px,3.2vw,40px);font-weight:600;line-height:1.1;letter-spacing:-.02em;color:#06182d;margin-bottom:18px;}
-.section-body{font-size:16px;line-height:1.65;color:#4c5a70;}
+/* Hero right side */
+.hero-right{position:relative;height:520px;}
 
-/* ── FEATURES ── */
-.features-sec{padding:96px 0;background:#fff;}
-.features-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.features-layout.reverse{direction:rtl;}
-.features-layout.reverse > *{direction:ltr;}
-.features-visual{border:1px solid rgba(226,229,234,.7);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);min-height:360px;background:#f5f6f8;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;position:relative;}
-.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;}
-.pill-purple{background:#eef4fd;color:#0a51e8;}
-.pill-green{background:#dcfce7;color:#166534;}
-.pill-amber{background:#fff7ed;color:#c2410c;}
+/* Main glassmorphism card */
+.glass-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:288px;background:rgba(255,255,255,.09);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);animation:float-main 4s ease-in-out infinite alternate;}
+@keyframes float-main{from{transform:translate(-50%,-50%) translateY(0);}to{transform:translate(-50%,-50%) translateY(-10px);}}
+.gc-top{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.gc-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.gc-meta{flex:1;}
+.gc-name{font-size:13.5px;font-weight:700;color:#fff;line-height:1.3;}
+.gc-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px;}
+.gc-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.3);border-radius:var(--r-pill);padding:4px 10px;font-size:11px;font-weight:600;color:#fbbf24;}
+.gc-milestone{background:rgba(255,255,255,.06);border-radius:12px;padding:14px;margin-bottom:14px;}
+.gc-milestone-type{font-size:20px;font-weight:800;color:#fff;font-family:var(--font-tight);letter-spacing:-.02em;line-height:1.1;margin-bottom:6px;}
+.gc-milestone-msg{font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;}
+.gc-footer{display:flex;align-items:center;justify-content:space-between;}
+.gc-pts{font-size:12px;font-weight:600;color:var(--orange-200);}
+.gc-reacts{display:flex;gap:6px;font-size:13px;}
+
+/* Toast cards */
+.toast-card{position:absolute;background:#fff;border:1px solid var(--light-200);border-radius:12px;padding:10px 14px;box-shadow:0 4px 20px rgba(0,0,0,.15);display:flex;align-items:center;gap:10px;}
+.toast-icon{font-size:22px;line-height:1;flex-shrink:0;}
+.toast-title{font-size:12px;font-weight:700;color:var(--dark-300);}
+.toast-sub{font-size:10.5px;color:var(--dark-000);margin-top:1px;}
+.toast-1{top:4%;right:-2%;width:210px;animation:float-t1 3s ease-in-out 0s infinite alternate;}
+.toast-2{top:42%;right:-4%;width:200px;animation:float-t2 3.5s ease-in-out .4s infinite alternate;}
+.toast-3{bottom:6%;right:0%;width:200px;animation:float-t3 4s ease-in-out .8s infinite alternate;}
+@keyframes float-t1{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+@keyframes float-t2{from{transform:translateY(0);}to{transform:translateY(8px);}}
+@keyframes float-t3{from{transform:translateY(0);}to{transform:translateY(-6px);}}
+
+/* ── MARQUEE ── */
+.marquee-strip{background:var(--dark-200);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 0;overflow:hidden;}
+.marquee-inner{mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);}
+.marquee-track{display:flex;align-items:center;gap:48px;width:max-content;animation:marquee 28s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-logo{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.45);}
+.marquee-logo-icon{width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:13px;}
+
+/* ── HOW IT WORKS ── */
+.how-sec{padding:100px 0;background:var(--light-000);}
+.section-eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-000);margin-bottom:14px;}
+.section-eyebrow::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0;}
+.section-title{font-family:var(--font-tight);font-size:clamp(26px,3.2vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--dark-300);margin-bottom:18px;}
+.section-body{font-size:16px;line-height:1.68;color:var(--dark-100);}
+.how-grid{display:grid;grid-template-columns:380px minmax(0,520px);gap:56px;align-items:start;margin-top:56px;}
+.how-tabs{display:flex;flex-direction:column;gap:4px;}
+.how-tab{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:14px;cursor:pointer;border:1.5px solid transparent;transition:background .2s,border-color .2s;}
+.how-tab:hover{background:#fff;border-color:var(--light-200);}
+.how-tab.active{background:#fff;border-color:rgba(29,97,246,.25);box-shadow:0 4px 16px rgba(29,97,246,.08);}
+.how-tab-num{width:32px;height:32px;border-radius:50%;background:var(--light-100);color:var(--dark-100);font-size:13px;font-weight:700;font-family:var(--font-mono);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,color .2s;}
+.how-tab.active .how-tab-num{background:var(--brand);color:#fff;}
+.how-tab-title{font-size:15px;font-weight:700;color:var(--dark-300);margin-bottom:4px;}
+.how-tab-body{font-size:13.5px;color:var(--dark-100);line-height:1.6;display:none;}
+.how-tab.active .how-tab-body{display:block;}
+.how-visual{background:#fff;border:1px solid var(--light-200);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);min-height:360px;position:relative;}
+.how-panel{display:none;padding:24px;}
+.how-panel.active{display:block;}
+.how-panel-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-000);margin-bottom:16px;}
+
+/* ── BENTO GRID ── */
+.bento-sec{padding:100px 0;background:var(--white);}
+.bento-hdr{margin-bottom:48px;}
+.bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;auto-rows:auto;}
+.bento-card{background:var(--light-000);border:1px solid var(--light-200);border-radius:20px;padding:28px;overflow:hidden;position:relative;transition:box-shadow .2s;}
+.bento-card:hover{box-shadow:0 8px 32px rgba(11,23,40,.1);}
+.bento-span-2{grid-column:span 2;}
+.bento-dark{background:var(--dark-300);border-color:rgba(255,255,255,.08);}
+.bento-card__eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-000);margin-bottom:10px;}
+.bento-dark .bento-card__eyebrow{color:rgba(255,255,255,.35);}
+.bento-card__title{font-family:var(--font-tight);font-size:19px;font-weight:700;color:var(--dark-300);line-height:1.25;margin-bottom:10px;}
+.bento-dark .bento-card__title{color:#fff;}
+.bento-card__body{font-size:13.5px;color:var(--dark-100);line-height:1.65;margin-bottom:18px;}
+.bento-dark .bento-card__body{color:rgba(255,255,255,.55);}
+.bento-tag{display:inline-flex;align-items:center;gap:5px;background:var(--brand-l);color:var(--brand);border-radius:var(--r-pill);padding:4px 12px;font-size:11.5px;font-weight:600;margin-bottom:14px;}
+
+/* Progress bars in bento cards */
+.bento-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.bento-progress-label{font-size:12px;color:var(--dark-100);width:100px;flex-shrink:0;}
+.bento-progress-bar-wrap{flex:1;height:8px;background:var(--light-200);border-radius:var(--r-pill);overflow:hidden;}
+.bento-progress-bar{height:100%;border-radius:var(--r-pill);}
+.bento-progress-count{font-size:11px;color:var(--dark-000);width:28px;text-align:right;}
+
+/* Social feed scroll */
+.feed-scroll-wrap{overflow:hidden;height:200px;position:relative;margin-top:14px;}
+.feed-scroll-track{display:flex;flex-direction:column;gap:8px;animation:feed-scroll 12s linear infinite;}
+@keyframes feed-scroll{0%{transform:translateY(0);}100%{transform:translateY(-50%);}}
+.feed-post{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;}
+.feed-post-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.feed-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;}
+.feed-post-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.85);}
+.feed-post-time{font-size:10px;color:rgba(255,255,255,.35);margin-left:auto;}
+.feed-post-msg{font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.5;}
+.feed-post-emoji{font-size:13px;margin-top:5px;}
+
+/* Wishboard mini */
+.wish-card{background:#fff;border:1px solid var(--light-200);border-radius:12px;padding:10px 12px;margin-bottom:8px;}
+.wish-card-top{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.wish-av{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;color:#fff;flex-shrink:0;}
+.wish-name{font-size:11.5px;font-weight:600;color:var(--dark-300);}
+.wish-msg{font-size:11px;color:var(--dark-100);line-height:1.5;}
+
+/* Gift grid */
+.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
+.gift-item{background:#fff;border:1px solid var(--light-200);border-radius:10px;padding:10px;text-align:center;}
+.gift-item__icon{font-size:22px;margin-bottom:5px;}
+.gift-item__name{font-size:11px;font-weight:600;color:var(--dark-300);}
+.gift-item__sub{font-size:10px;color:var(--dark-000);}
+
+/* Analytics in bento */
+.analytics-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;}
+.analytics-stat{text-align:center;padding:12px;border-radius:12px;}
+.analytics-stat__val{font-size:22px;font-weight:800;font-family:var(--font-tight);letter-spacing:-.02em;line-height:1;}
+.analytics-stat__lbl{font-size:11px;color:var(--dark-000);margin-top:3px;}
+.sparkline-wrap{background:#fff;border:1px solid var(--light-200);border-radius:12px;padding:12px;}
+.sparkline-label{font-size:11px;font-weight:600;color:var(--dark-000);margin-bottom:8px;}
 
 /* ── INTEGRATIONS ── */
-.integrations-sec{padding:96px 0;background:#f5f6f8;}
+.integrations-sec{padding:96px 0;background:var(--light-000);}
 .int-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;justify-content:center;}
-.int-chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e2e5ea;border-radius:100px;padding:8px 16px;box-shadow:0 1px 3px rgba(6,24,45,.06);font-size:13px;font-weight:500;color:#4c5a70;transition:box-shadow .15s,border-color .15s,transform .15s;}
-.int-chip:hover{box-shadow:0 4px 12px rgba(6,24,45,.1);border-color:#0a51e8;transform:translateY(-1px);}
-.int-chip__logo{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;background:#f0f0f5;}
-.int-note{text-align:center;margin-top:24px;font-size:14px;color:#4c5a70;}
-.int-note a{color:#0a51e8;font-weight:600;}
+.int-chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--light-200);border-radius:100px;padding:8px 18px;box-shadow:var(--shadow-sm);font-size:13px;font-weight:500;color:var(--dark-100);transition:box-shadow .15s,border-color .15s,transform .15s;}
+.int-chip:hover{box-shadow:var(--shadow-md);border-color:var(--brand);transform:translateY(-1px);}
+.int-chip__logo{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.int-note{text-align:center;margin-top:24px;font-size:14px;color:var(--dark-100);}
+.int-note a{color:var(--brand);font-weight:600;}
 
 /* ── FAQ ── */
-.faq-sec{background:#f5f6f8;padding:72px 0;}
-.faq-wrap{max-width:860px;margin:0 auto;}
-.faq-sec .section-title,.faq-sec .section-label{text-align:center;display:block;}
-.faq-list{margin-top:44px;border-top:1px solid #e2e5ea;}
-.faq-item{border-bottom:1px solid #e2e5ea;}
+.faq-sec{background:var(--light-000);padding:80px 0;}
+.faq-wrap{max-width:840px;margin:0 auto;}
+.faq-sec .section-eyebrow,.faq-sec .section-title{text-align:center;display:block;}
+.faq-list{margin-top:44px;border-top:1px solid var(--light-200);}
+.faq-item{border-bottom:1px solid var(--light-200);}
 .faq-item__q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px;}
-.faq-item__q-text{font-family:var(--font-tight);font-size:15px;font-weight:600;color:#06182d;line-height:1.5;flex:1;}
-.faq-item__chevron{width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid #e2e5ea;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .22s,border-color .22s,transform .3s cubic-bezier(.22,1,.36,1);}
-.faq-item.open .faq-item__chevron{background:#06182d;border-color:#06182d;transform:rotate(180deg);}
+.faq-item__q-text{font-family:var(--font-tight);font-size:15px;font-weight:600;color:var(--dark-300);line-height:1.5;flex:1;}
+.faq-item__chevron{width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid var(--light-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .22s,border-color .22s,transform .3s cubic-bezier(.22,1,.36,1);}
+.faq-item.open .faq-item__chevron{background:var(--dark-300);border-color:var(--dark-300);transform:rotate(180deg);}
 .faq-item.open .faq-item__chevron svg path{stroke:#fff;}
 .faq-item__a{display:block;overflow:hidden;max-height:0;opacity:0;padding-bottom:0;transition:max-height .42s cubic-bezier(.22,1,.36,1),opacity .3s ease,padding-bottom .3s ease;}
 .faq-item.open .faq-item__a{max-height:400px;opacity:1;padding-bottom:20px;}
-.faq-item__a p{font-size:14px;color:#4c5a70;line-height:1.75;margin:0;}
+.faq-item__a p{font-size:14px;color:var(--dark-100);line-height:1.75;margin:0;}
 
 /* ── CTA ── */
-.cta-sec{background:#06182d;padding:88px 0;position:relative;overflow:hidden;}
-.cta-sec::before{content:'';position:absolute;left:-180px;top:-180px;width:680px;height:680px;border-radius:50%;background:radial-gradient(ellipse,rgba(10,81,232,.35) 0%,transparent 65%);pointer-events:none;}
+.cta-sec{background:var(--dark-300);padding:96px 0;position:relative;overflow:hidden;}
+.cta-sec::before{content:'';position:absolute;left:-180px;top:-180px;width:680px;height:680px;border-radius:50%;background:radial-gradient(ellipse,rgba(29,97,246,.35) 0%,transparent 65%);pointer-events:none;}
 .cta-inner{position:relative;max-width:1160px;margin:0 auto;padding:0 64px;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center;}
 .cta-inner h2{font-family:var(--font-tight);font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:16px;}
-.cta-inner p{font-size:17px;color:rgba(255,255,255,.75);}
-.cta-btns{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:0;}
-.btn-white{background:#fff;color:#06182d;border:none;border-radius:4px;padding:13px 28px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:background .15s;}
-.btn-white:hover{background:#eef4fd;}
-.cta-talk-sales{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s;}
+.cta-inner p{font-size:17px;color:rgba(255,255,255,.72);}
+.cta-btns{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--dark-300);border:none;border-radius:6px;padding:13px 28px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:background .15s;}
+.btn-white:hover{background:var(--brand-l);}
+.cta-talk-sales{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:rgba(255,255,255,.6);transition:color .15s;}
 .cta-talk-sales:hover{color:#fff;}
 .cta-compliance{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:.1em;font-family:var(--font-mono);text-transform:uppercase;}
 .cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:280px;}
 
 /* ── FOOTER ── */
-.xox-footer{background:#fff;border-top:1px solid #e2e5ea;font-family:'Inter',sans-serif;}
+.xox-footer{background:#fff;border-top:1px solid var(--light-200);}
 .xox-footer__wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-.xox-footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;padding:52px 0 40px;border-bottom:1px solid #e2e5ea;}
+.xox-footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;padding:52px 0 40px;border-bottom:1px solid var(--light-200);}
 .xox-footer__brand-logo{margin-bottom:14px;}
 .xox-footer__brand-logo img{height:22px;width:auto;opacity:.85;}
-.xox-footer__brand-desc{font-size:13px;color:#8092a0;line-height:1.65;max-width:220px;margin-bottom:16px;}
+.xox-footer__brand-desc{font-size:13px;color:var(--dark-000);line-height:1.65;max-width:220px;margin-bottom:16px;}
 .xox-footer__badges{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
-.xox-footer__badge{font-size:10px;font-weight:600;color:#8092a0;border:1px solid #e2e5ea;border-radius:4px;padding:2px 8px;}
+.xox-footer__badge{font-size:10px;font-weight:600;color:var(--dark-000);border:1px solid var(--light-200);border-radius:4px;padding:2px 8px;}
 .xox-footer__social{display:flex;gap:6px;}
-.xox-footer__social-link{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e5ea;border-radius:6px;color:#8092a0;transition:background .13s,color .13s,border-color .13s;text-decoration:none;}
-.xox-footer__social-link:hover{background:#f5f6f8;color:#06182d;border-color:#c6ccd6;}
-.xox-footer__col-title{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8092a0;margin-bottom:14px;}
-.xox-footer__col ul{list-style:none;padding:0;margin:0;}
+.xox-footer__social-link{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--light-200);border-radius:6px;color:var(--dark-000);transition:background .13s,color .13s;}
+.xox-footer__social-link:hover{background:var(--light-000);color:var(--dark-300);}
+.xox-footer__col-title{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--dark-000);margin-bottom:14px;}
+.xox-footer__col ul{list-style:none;padding:0;}
 .xox-footer__col ul li{margin-bottom:9px;}
-.xox-footer__col ul li a{font-size:13px;color:#4c5a70;text-decoration:none;transition:color .13s;}
-.xox-footer__col ul li a:hover{color:#06182d;}
+.xox-footer__col ul li a{font-size:13px;color:var(--dark-100);transition:color .13s;}
+.xox-footer__col ul li a:hover{color:var(--dark-300);}
 .xox-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0;flex-wrap:wrap;}
-.xox-footer__copy{font-size:12px;color:#8092a0;}
+.xox-footer__copy{font-size:12px;color:var(--dark-000);}
 .xox-footer__legal{display:flex;gap:20px;}
-.xox-footer__legal a{font-size:12px;color:#8092a0;text-decoration:none;transition:color .13s;}
-.xox-footer__legal a:hover{color:#06182d;}
+.xox-footer__legal a{font-size:12px;color:var(--dark-000);transition:color .13s;}
+.xox-footer__legal a:hover{color:var(--dark-300);}
 
-/* ── HERO VISUAL ── */
-.hv-scene{position:relative;width:100%;max-width:520px;padding-bottom:48px;}
-.hv-window{background:#fff;border:1px solid rgba(226,229,234,.8);border-radius:14px;box-shadow:0 2px 4px rgba(6,24,45,.04),0 8px 32px rgba(6,24,45,.08),0 24px 64px rgba(6,24,45,.07);overflow:hidden;}
-.hv-chrome{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#f5f6f8;border-bottom:1px solid #eef0f3;}
-.hv-dots{display:flex;gap:5px;}
-.hv-dot{width:10px;height:10px;border-radius:50%;}
-.hv-dot-r{background:#ff5f57;}.hv-dot-y{background:#febc2e;}.hv-dot-g{background:#28c840;}
-.hv-urlbar{flex:1;display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e2e5ea;border-radius:6px;padding:3px 10px;font-size:10.5px;color:#8092a0;font-family:var(--font-mono);}
-.hv-app{display:flex;height:400px;}
-.hv-sidebar{width:46px;background:#06182d;display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;flex-shrink:0;}
-.hv-sb-logo{padding:4px 0 10px;}
-.hv-sb-icons{display:flex;flex-direction:column;gap:2px;}
-.hv-sb-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);cursor:pointer;transition:background .15s,color .15s;}
-.hv-sb-active{background:rgba(10,81,232,.3)!important;color:#7ba9f7!important;}
-.hv-feed{flex:1;overflow:hidden;padding:14px 14px 0;background:#fafbfc;display:flex;flex-direction:column;gap:10px;}
-.hv-feed-head{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.hv-feed-title{font-size:12px;font-weight:700;color:#06182d;}
-.hv-live-pill{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:#22c55e;background:rgba(34,197,94,.1);padding:2px 8px;border-radius:20px;}
-.hv-live-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;animation:hv-pulse 2s ease infinite;}
-@keyframes hv-pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-.hv-post{background:#fff;border:1px solid #eef0f3;border-radius:10px;padding:12px;flex-shrink:0;}
-.hv-post-peek{position:relative;overflow:hidden;height:54px;}
-.hv-post-peek-blur{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(250,251,252,0) 0%,rgba(250,251,252,.95) 80%);}
-.hv-post-top{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;}
-.hv-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;}
-.hv-av-blue{background:linear-gradient(135deg,#4338ca,#6366f1);}
-.hv-av-amber{background:linear-gradient(135deg,#d97706,#f59e0b);}
-.hv-post-meta{flex:1;min-width:0;}
-.hv-post-who{font-size:11.5px;color:#06182d;line-height:1.4;}
-.hv-got{font-weight:400;color:#8092a0;}
-.hv-post-time{font-size:10.5px;color:#adb8c4;margin-top:1px;}
-.hv-org{color:#0a51e8;font-weight:500;}
-.hv-more{font-size:16px;color:#c4cdd6;cursor:pointer;padding:0 2px;}
-.hv-message{font-size:11px;line-height:1.55;color:#4c5a70;padding:8px 10px;background:rgba(246,184,71,.06);border-left:2px solid #f6b847;border-radius:0 6px 6px 0;margin-bottom:9px;}
-.hv-msg-icon{color:#f6b847;margin-right:4px;font-style:normal;}
-.hv-award{border-radius:8px;overflow:hidden;border:1.5px solid rgba(246,184,71,.4);margin-bottom:9px;}
-.hv-award-inner{display:flex;align-items:stretch;min-height:90px;position:relative;background:#fff;}
-.hv-award-left{display:flex;flex-direction:column;justify-content:space-between;padding:10px 10px 10px 12px;width:100px;flex-shrink:0;z-index:1;}
-.hv-award-logo{font-size:9.5px;font-weight:800;letter-spacing:-.02em;color:#8092a0;font-family:'Inter',sans-serif;}
-.hv-award-logo span{color:#f97316;}
-.hv-award-recipient{display:flex;align-items:center;gap:5px;}
-.hv-award-avatar{width:22px;height:22px;border-radius:50%;object-fit:cover;}
-.hv-award-name-label{font-size:9px;font-weight:700;color:#06182d;white-space:nowrap;}
-.hv-award-role{font-size:8px;color:#8092a0;}
-.hv-award-emoji{font-size:32px;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,.12));}
-.hv-award-right{flex:1;padding:10px 14px 10px 8px;display:flex;flex-direction:column;justify-content:space-between;z-index:1;}
-.hv-award-type{font-size:17px;font-weight:800;line-height:1.05;color:#06182d;letter-spacing:-.02em;font-family:'DM Sans','Inter',sans-serif;}
-.hv-award-msg{font-size:9.5px;color:#4c5a70;line-height:1.45;flex:1;padding:5px 0;}
-.hv-award-chip{display:inline-flex;align-items:center;padding:3px 8px;background:#fff;border:1px solid #e2e5ea;border-radius:20px;font-size:8.5px;font-weight:600;color:#4c5a70;align-self:flex-end;box-shadow:0 1px 3px rgba(6,24,45,.06);}
-.hv-award-bg{position:absolute;bottom:0;right:0;width:90px;height:90px;background:linear-gradient(135deg,rgba(246,184,71,0) 40%,rgba(246,184,71,.9) 100%);clip-path:polygon(100% 0,100% 100%,0 100%);z-index:0;}
-.hv-reactions{display:flex;gap:5px;}
-.hv-react{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:#8092a0;background:#f5f6f8;border:1px solid #eef0f3;border-radius:20px;padding:3px 9px;cursor:pointer;font-family:inherit;transition:background .12s,color .12s,border-color .12s;}
-.hv-react:hover{background:#eef4fd;color:#0a51e8;border-color:rgba(10,81,232,.3);}
-.hv-float{position:absolute;background:#fff;border:1px solid rgba(226,229,234,.8);border-radius:10px;box-shadow:0 4px 20px rgba(6,24,45,.1),0 1px 4px rgba(6,24,45,.06);padding:10px 12px;animation:hv-float-bob 4s ease-in-out infinite;}
-@keyframes hv-float-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-.hv-float-ai{top:32px;right:-28px;width:196px;display:flex;align-items:flex-start;gap:8px;animation-delay:.5s;animation-duration:5s;}
-.hv-float-icon-ai{width:26px;height:26px;border-radius:8px;background:rgba(246,184,71,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.hv-float-label{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#d97706;margin-bottom:3px;}
-.hv-float-text{font-size:10.5px;color:#4c5a70;line-height:1.45;font-style:italic;}
-.hv-float-toast{bottom:16px;right:-24px;display:flex;align-items:center;gap:10px;width:188px;animation-delay:1.2s;animation-duration:4.5s;}
-.hv-toast-icon{font-size:22px;line-height:1;}
-.hv-toast-title{font-size:12px;font-weight:700;color:#06182d;}
-.hv-toast-sub{font-size:10px;color:#8092a0;margin-top:1px;}
-.hv-float-stats{bottom:-22px;left:16px;padding:10px 16px;animation-delay:0s;animation-duration:6s;}
-.hv-stats-row{display:flex;align-items:center;gap:14px;}
-.hv-stat-item{text-align:center;}
-.hv-stat-val{font-size:14px;font-weight:800;color:#06182d;font-family:'DM Sans','Inter',sans-serif;letter-spacing:-.03em;line-height:1;}
-.hv-stat-green{color:#16a34a;}.hv-stat-amber{color:#d97706;}
-.hv-stat-lbl{font-size:9px;color:#8092a0;white-space:nowrap;margin-top:2px;}
-.hv-stat-sep{width:1px;height:28px;background:#eef0f3;}
-
-@media(max-width:900px){
-  .hero__inner{grid-template-columns:1fr;}
-  .features-layout{grid-template-columns:1fr;gap:40px;}
-  .features-layout.reverse{direction:ltr;}
-  .xox-footer__grid{grid-template-columns:1fr 1fr;gap:28px;}
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;}
+  .hero-right{height:380px;}
+  .how-grid{grid-template-columns:1fr;gap:32px;}
+  .bento-grid{grid-template-columns:1fr 1fr;}
+  .bento-span-2{grid-column:span 2;}
   .cta-inner{grid-template-columns:1fr;gap:40px;padding:0 24px;}
+  .xox-footer__grid{grid-template-columns:1fr 1fr;gap:28px;}
 }
 @media(max-width:600px){
-  .xox-nav-links,.xox-nav-ctas{display:none;}
+  .nav-links,.nav-ctas{display:none;}
   .hero h1{font-size:36px;}
+  .bento-grid{grid-template-columns:1fr;}
+  .bento-span-2{grid-column:span 1;}
   .xox-footer__grid{grid-template-columns:1fr;}
-  .xox-footer__bottom{flex-direction:column;align-items:flex-start;}
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<header id="xox-header">
-  <div class="xox-nav-pill">
-    <div class="xox-nav-inner">
-      <a class="xox-nav-logo" href="https://www.xoxoday.com/empuls" aria-label="Empuls home">
+<header id="site-header">
+  <div class="nav-pill" id="nav-pill">
+    <div class="nav-inner">
+      <a class="nav-logo" href="https://www.xoxoday.com/empuls" aria-label="Empuls home">
         <img src="https://cdn.prod.website-files.com/698c1e74d185818c6f9550af/69a02639d139a98eb39629bb_XOXODAY-DARK-LOGOS.svg" alt="Empuls" />
       </a>
-      <ul class="xox-nav-links" role="menubar">
+      <ul class="nav-links" role="menubar">
         <li>
-          <a class="xox-nav-link" href="#">Platform
+          <a class="nav-link" href="#">Platform
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <div class="xox-drop xox-drop--mega">
-            <div class="xox-dcol">
-              <div class="xox-dcol-title">Recognition</div>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/rewards-recognition"><div><div class="xox-ditem__name">Recognition &amp; Rewards</div><div class="xox-ditem__desc">Overview</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/external-recognition"><div><div class="xox-ditem__name">External Recognition</div></div></a>
-              <a class="xox-ditem" href="empuls-spot-awards.html"><div><div class="xox-ditem__name">Spot Awards</div></div></a>
-              <a class="xox-ditem" href="empuls-nominations.html"><div><div class="xox-ditem__name">Nomination Awards</div></div></a>
+          <div class="nav-drop nav-drop--mega">
+            <div class="nav-dcol">
+              <div class="nav-dcol-title">Recognition</div>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/rewards-recognition"><div><div class="nav-ditem__name">Recognition &amp; Rewards</div><div class="nav-ditem__desc">Overview</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/external-recognition"><div><div class="nav-ditem__name">External Recognition</div></div></a>
+              <a class="nav-ditem" href="empuls-spot-awards.html"><div><div class="nav-ditem__name">Spot Awards</div></div></a>
+              <a class="nav-ditem" href="empuls-nominations.html"><div><div class="nav-ditem__name">Nomination Awards</div></div></a>
             </div>
-            <div class="xox-dcol">
-              <div class="xox-dcol-title">Perks &amp; Benefits</div>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/perks-and-benefits"><div><div class="xox-ditem__name">Benefits Overview</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/tax-saving-benefits"><div><div class="xox-ditem__name">Tax-saving Benefits</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/health-and-wellness"><div><div class="xox-ditem__name">Health &amp; Wellness</div></div></a>
-              <div class="xox-dcol-title" style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f2f5;border-bottom:none;margin-bottom:4px;">Gifting</div>
-              <a class="xox-ditem xox-ditem--active" href="empuls-celebrations.html"><div><div class="xox-ditem__name">Birthdays &amp; Anniversaries</div></div></a>
+            <div class="nav-dcol">
+              <div class="nav-dcol-title">Perks &amp; Benefits</div>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/perks-and-benefits"><div><div class="nav-ditem__name">Benefits Overview</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/tax-saving-benefits"><div><div class="nav-ditem__name">Tax-saving Benefits</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/health-and-wellness"><div><div class="nav-ditem__name">Health &amp; Wellness</div></div></a>
+              <div class="nav-dcol-title" style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f2f5;border-bottom:none;margin-bottom:4px;">Gifting</div>
+              <a class="nav-ditem nav-ditem--active" href="empuls-celebrations.html"><div><div class="nav-ditem__name">Birthdays &amp; Anniversaries</div></div></a>
             </div>
-            <div class="xox-dcol">
-              <div class="xox-dcol-title">Engagement</div>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/social-intranet-software"><div><div class="xox-ditem__name">Engagement Overview</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/employee-survey-tool"><div><div class="xox-ditem__name">Surveys &amp; Feedback</div></div></a>
-              <div class="xox-dcol-title" style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f2f5;border-bottom:none;margin-bottom:4px;">Incentives</div>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/employee-incentives"><div><div class="xox-ditem__name">Incentives Overview</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/sales-incentives"><div><div class="xox-ditem__name">Sales Incentives</div></div></a>
+            <div class="nav-dcol">
+              <div class="nav-dcol-title">Engagement</div>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/social-intranet-software"><div><div class="nav-ditem__name">Engagement Overview</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/employee-survey-tool"><div><div class="nav-ditem__name">Surveys &amp; Feedback</div></div></a>
+              <div class="nav-dcol-title" style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f2f5;border-bottom:none;margin-bottom:4px;">Incentives</div>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/employee-incentives"><div><div class="nav-ditem__name">Incentives Overview</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/sales-incentives"><div><div class="nav-ditem__name">Sales Incentives</div></div></a>
             </div>
-            <div class="xox-dcol">
-              <div class="xox-dcol-title">Platform Tools</div>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/ai-copilot"><div><div class="xox-ditem__name">Empuls Copilot</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/integrations"><div><div class="xox-ditem__name">Integrations</div></div></a>
-              <a class="xox-ditem" href="https://www.xoxoday.com/empuls/rewards-marketplace"><div><div class="xox-ditem__name">Rewards Catalog</div></div></a>
+            <div class="nav-dcol">
+              <div class="nav-dcol-title">Platform Tools</div>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/ai-copilot"><div><div class="nav-ditem__name">Empuls Copilot</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/integrations"><div><div class="nav-ditem__name">Integrations</div></div></a>
+              <a class="nav-ditem" href="https://www.xoxoday.com/empuls/rewards-marketplace"><div><div class="nav-ditem__name">Rewards Catalog</div></div></a>
             </div>
           </div>
         </li>
         <li>
-          <a class="xox-nav-link" href="#">Solutions
+          <a class="nav-link" href="#">Solutions
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <div class="xox-drop xox-drop--md">
-            <div class="xox-dcol">
-              <div class="xox-dcol-title">By Industry</div>
-              <a class="xox-drop-link" href="#">Healthcare &amp; Pharma</a>
-              <a class="xox-drop-link" href="#">IT, BPO &amp; Consulting</a>
-              <a class="xox-drop-link" href="#">Financial Services</a>
-              <a class="xox-drop-link" href="#">Manufacturing &amp; Infra</a>
+          <div class="nav-drop nav-drop--md">
+            <div class="nav-dcol">
+              <div class="nav-dcol-title">By Industry</div>
+              <a class="nav-drop-link" href="#">Healthcare &amp; Pharma</a>
+              <a class="nav-drop-link" href="#">IT, BPO &amp; Consulting</a>
+              <a class="nav-drop-link" href="#">Financial Services</a>
+              <a class="nav-drop-link" href="#">Manufacturing &amp; Infra</a>
             </div>
-            <div class="xox-dcol">
-              <div class="xox-dcol-title">By Role</div>
-              <a class="xox-drop-link" href="#">C-Suite</a>
-              <a class="xox-drop-link" href="#">HR Leaders</a>
-              <a class="xox-drop-link" href="#">Finance &amp; Procurement</a>
+            <div class="nav-dcol">
+              <div class="nav-dcol-title">By Role</div>
+              <a class="nav-drop-link" href="#">C-Suite</a>
+              <a class="nav-drop-link" href="#">HR Leaders</a>
+              <a class="nav-drop-link" href="#">Finance &amp; Procurement</a>
             </div>
           </div>
         </li>
         <li>
-          <a class="xox-nav-link" href="#">Resources
+          <a class="nav-link" href="#">Resources
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <div class="xox-drop xox-drop--sm">
-            <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/casestudies">Customers</a>
-            <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/all-features">All Features</a>
-            <a class="xox-drop-link" href="https://blog.xoxoday.com/empuls/">Blog</a>
-            <a class="xox-drop-link" href="https://help.empuls.xoxoday.com/en/">Help Center</a>
-            <a class="xox-drop-link" href="https://www.xoxoday.com/empuls/mobile-app">Mobile App</a>
+          <div class="nav-drop nav-drop--sm">
+            <a class="nav-drop-link" href="https://www.xoxoday.com/empuls/casestudies">Customers</a>
+            <a class="nav-drop-link" href="https://www.xoxoday.com/empuls/all-features">All Features</a>
+            <a class="nav-drop-link" href="https://blog.xoxoday.com/empuls/">Blog</a>
+            <a class="nav-drop-link" href="https://help.empuls.xoxoday.com/en/">Help Center</a>
+            <a class="nav-drop-link" href="https://www.xoxoday.com/empuls/mobile-app">Mobile App</a>
           </div>
         </li>
-        <li><a class="xox-nav-link" href="https://www.xoxoday.com/empuls/plans">Plans</a></li>
+        <li><a class="nav-link" href="https://www.xoxoday.com/empuls/plans">Plans</a></li>
       </ul>
-      <div class="xox-nav-ctas">
-        <a href="https://www.xoxoday.com/empuls/demo" class="xox-btn-demo">Schedule demo</a>
-        <a href="https://empulsaccounts.xoxoday.com/chef/sso/direct/redirect/empuls/authorize/timestamp" class="xox-btn-redeem">Redeem Rewards</a>
+      <div class="nav-ctas">
+        <a href="https://www.xoxoday.com/empuls/demo" class="btn-demo">Schedule demo</a>
+        <a href="https://empulsaccounts.xoxoday.com/chef/sso/direct/redirect/empuls/authorize/timestamp" class="btn-redeem">Redeem Rewards</a>
       </div>
     </div>
   </div>
@@ -367,168 +393,241 @@ button{font-family:var(--font-body);cursor:pointer;}
 
 
 <!-- HERO -->
-<section class="hero" data-nav="dark">
-  <div class="wrap">
-    <div class="hero__inner">
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="dot-grid"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
 
-      <!-- Left: copy -->
-      <div class="hero__copy reveal">
-        <div class="hero__eyebrow">
-          <div class="hero__eyebrow-dot"></div>
-          <span>Celebrations &nbsp;·&nbsp; Part of Empuls Gifting</span>
+  <div class="hero-inner">
+    <!-- Left: copy -->
+    <div class="reveal">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Celebrations &nbsp;·&nbsp; Part of Empuls Gifting</span>
+      </div>
+      <h1>Every milestone.<br><em>Celebrated automatically.</em></h1>
+      <p class="hero-sub">Empuls detects birthdays, work anniversaries, and life events — then triggers Wishboards, gift credits, and team shoutouts without any HR effort.</p>
+      <div class="hero-ctas">
+        <a href="https://www.xoxoday.com/empuls/demo" class="btn-hero-primary">Talk to our expert →</a>
+        <a href="https://www.xoxoday.com/empuls/employee-gifting" class="btn-hero-ghost">See how it works</a>
+      </div>
+    </div>
+
+    <!-- Right: floating cards -->
+    <div class="hero-right reveal reveal-d2">
+
+      <!-- Main glassmorphism card -->
+      <div class="glass-card">
+        <div class="gc-top">
+          <div class="gc-avatar">PK</div>
+          <div class="gc-meta">
+            <div class="gc-name">Priya Kapoor</div>
+            <div class="gc-sub">Product Designer · Xoxoday Global</div>
+          </div>
+          <div class="gc-badge">🎂 Birthday</div>
         </div>
-        <h1>Milestones celebrated. <em>Every single one.</em></h1>
-        <p class="hero__sub">Automate birthday, work anniversary, and life milestone celebrations — so no one on your team ever feels forgotten.</p>
-        <div class="hero__ctas">
-          <a class="btn btn-primary" href="https://www.xoxoday.com/empuls/demo">Talk to our expert →</a>
+        <div class="gc-milestone">
+          <div class="gc-milestone-type">HAPPY<br>BIRTHDAY</div>
+          <div class="gc-milestone-msg">Wishing you a wonderful day, Priya! Your creativity and dedication light up our team every single day. 🎉</div>
+        </div>
+        <div class="gc-footer">
+          <div class="gc-pts">🎁 ₹500 gift credit attached</div>
+          <div class="gc-reacts">🎉 36 &nbsp; ❤️ 18</div>
         </div>
       </div>
 
-      <!-- Right: product UI -->
-      <div class="hero__visual reveal reveal-d2">
-        <div class="hv-scene">
+      <!-- Toast 1: top right -->
+      <div class="toast-card toast-1">
+        <div class="toast-icon">🎂</div>
+        <div>
+          <div class="toast-title">3 birthdays this week</div>
+          <div class="toast-sub">Wishboards auto-created</div>
+        </div>
+      </div>
 
-          <div class="hv-window">
-            <div class="hv-chrome">
-              <div class="hv-dots">
-                <span class="hv-dot hv-dot-r"></span>
-                <span class="hv-dot hv-dot-y"></span>
-                <span class="hv-dot hv-dot-g"></span>
+      <!-- Toast 2: mid right -->
+      <div class="toast-card toast-2">
+        <div class="toast-icon">🎉</div>
+        <div>
+          <div class="toast-title">Wishboard ready!</div>
+          <div class="toast-sub">14 wishes · Priya Kapoor</div>
+        </div>
+      </div>
+
+      <!-- Toast 3: bottom right -->
+      <div class="toast-card toast-3">
+        <div class="toast-icon">⭐</div>
+        <div>
+          <div class="toast-title">5-Year milestone!</div>
+          <div class="toast-sub">Rahul Mehta · ₹1,500 sent</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- LOGO MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <div class="marquee-track">
+      <!-- Set 1 -->
+      <div class="marquee-logo"><div class="marquee-logo-icon">💬</div>Slack</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>Microsoft Teams</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">📊</div>Workday</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟢</div>BambooHR</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🧡</div>SAP SuccessFactors</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟣</div>Darwinbox</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟡</div>Google Workspace</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟠</div>Keka</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔴</div>Zoho People</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>SharePoint</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">📱</div>Mobile App</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔵</div>LinkedIn</div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="marquee-logo"><div class="marquee-logo-icon">💬</div>Slack</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>Microsoft Teams</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">📊</div>Workday</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟢</div>BambooHR</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🧡</div>SAP SuccessFactors</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟣</div>Darwinbox</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟡</div>Google Workspace</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🟠</div>Keka</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔴</div>Zoho People</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔷</div>SharePoint</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">📱</div>Mobile App</div>
+      <div class="marquee-logo"><div class="marquee-logo-icon">🔵</div>LinkedIn</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- HOW IT WORKS -->
+<section class="how-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="section-eyebrow">How it works</span>
+      <h2 class="section-title">From hire date to heartfelt celebration<br>— fully automated</h2>
+    </div>
+    <div class="how-grid">
+      <!-- Left: step tabs -->
+      <div class="how-tabs">
+        <div class="how-tab active" data-step="1">
+          <div class="how-tab-num">1</div>
+          <div>
+            <div class="how-tab-title">Connect your HRMS</div>
+            <div class="how-tab-body">Link Empuls to Workday, BambooHR, Darwinbox, Keka, or any of 50+ HRMS platforms. Employee birthdays and hire dates sync instantly — and every new hire's milestones are scheduled automatically the moment they join.</div>
+          </div>
+        </div>
+        <div class="how-tab" data-step="2">
+          <div class="how-tab-num">2</div>
+          <div>
+            <div class="how-tab-title">Empuls auto-schedules everything</div>
+            <div class="how-tab-body">Weeks before each milestone, Empuls creates a private Wishboard, notifies the team to add a personal note, queues the celebration message, and reserves the gift credit — all without a single HR touchpoint.</div>
+          </div>
+        </div>
+        <div class="how-tab" data-step="3">
+          <div class="how-tab-num">3</div>
+          <div>
+            <div class="how-tab-title">The team celebrates together</div>
+            <div class="how-tab-body">On the day, a celebration posts to Slack, Teams, and the Empuls feed. The employee gets their Wishboard, their gift credit, and the feeling of being genuinely remembered — not just by HR, but by the whole team.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: visual panel -->
+      <div class="how-visual">
+        <div class="how-panel active" id="how-panel-1">
+          <div class="how-panel-label">HRMS Connection</div>
+          <div style="background:var(--light-000);border-radius:14px;border:1px solid var(--light-200);overflow:hidden;">
+            <div style="padding:12px 16px;border-bottom:1px solid var(--light-200);display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:13px;font-weight:700;color:var(--dark-300);">Sync Employee Data</span>
+              <span style="font-size:10px;font-weight:600;color:var(--green);background:rgba(34,197,94,.1);padding:2px 8px;border-radius:12px;">● Connected</span>
+            </div>
+            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#fff;border:1px solid var(--light-200);border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">
+                <div style="font-size:24px;">📊</div>
+                <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--dark-300);">Workday</div><div style="font-size:11px;color:var(--dark-000);">2,847 employees synced</div></div>
+                <div style="font-size:11px;color:var(--green);font-weight:600;">✓ Live</div>
               </div>
-              <div class="hv-urlbar">
-                <svg width="10" height="11" viewBox="0 0 10 11" fill="none"><rect x="1" y="4.5" width="8" height="6" rx="1.5" stroke="#aaa" stroke-width="1.2"/><path d="M3 4.5V3a2 2 0 0 1 4 0v1.5" stroke="#aaa" stroke-width="1.2"/></svg>
-                app.empuls.io/celebration-feed
+              <div style="background:#fff;border:1px solid var(--light-200);border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;">
+                <div style="font-size:24px;">🟢</div>
+                <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--dark-300);">BambooHR</div><div style="font-size:11px;color:var(--dark-000);">412 employees synced</div></div>
+                <div style="font-size:11px;color:var(--green);font-weight:600;">✓ Live</div>
+              </div>
+              <div style="background:var(--brand-l);border:1.5px solid rgba(29,97,246,.2);border-radius:10px;padding:12px;text-align:center;cursor:pointer;">
+                <div style="font-size:13px;font-weight:600;color:var(--brand);">+ Connect another HRMS</div>
+                <div style="font-size:11px;color:var(--dark-000);margin-top:2px;">50+ integrations available</div>
               </div>
             </div>
+            <div style="padding:10px 16px;border-top:1px solid var(--light-200);display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:11.5px;color:var(--dark-000);">Last synced: 2 minutes ago</span>
+              <span style="font-size:11.5px;color:var(--brand);font-weight:600;">Sync now →</span>
+            </div>
+          </div>
+        </div>
 
-            <div class="hv-app">
-              <!-- Sidebar -->
-              <div class="hv-sidebar">
-                <div class="hv-sb-logo">
-                  <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#0a51e8"/><text x="7" y="22" font-family="Arial" font-weight="800" font-size="16" fill="#fff">E</text></svg>
-                </div>
-                <div class="hv-sb-icons">
-                  <div class="hv-sb-icon hv-sb-active">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                  </div>
-                  <div class="hv-sb-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-                  </div>
-                  <div class="hv-sb-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                  </div>
-                  <div class="hv-sb-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                  </div>
-                </div>
+        <div class="how-panel" id="how-panel-2">
+          <div class="how-panel-label">Auto-Scheduled Celebrations</div>
+          <div style="background:var(--light-000);border-radius:14px;border:1px solid var(--light-200);overflow:hidden;">
+            <div style="padding:12px 16px;border-bottom:1px solid var(--light-200);">
+              <span style="font-size:13px;font-weight:700;color:var(--dark-300);">Upcoming in next 30 days</span>
+            </div>
+            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="font-size:22px;">🎂</div>
+                <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--dark-300);">Priya Kapoor · Birthday</div><div style="font-size:11px;color:var(--dark-000);">in 3 days · Wishboard live · ₹500 ready</div></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--orange-200);flex-shrink:0;"></div>
               </div>
-
-              <!-- Feed -->
-              <div class="hv-feed">
-                <div class="hv-feed-head">
-                  <div class="hv-feed-title">Celebration Feed</div>
-                  <div class="hv-live-pill"><span class="hv-live-dot"></span>Live</div>
-                </div>
-
-                <!-- Post 1: Birthday -->
-                <div class="hv-post">
-                  <div class="hv-post-top">
-                    <div class="hv-av hv-av-amber">PK</div>
-                    <div class="hv-post-meta">
-                      <div class="hv-post-who"><strong>Priya Kapoor</strong> <span class="hv-got">is celebrating her</span> <strong>Birthday 🎂</strong></div>
-                      <div class="hv-post-time">Today &middot; <span class="hv-org">Xoxoday Global</span></div>
-                    </div>
-                    <div class="hv-more">&#8942;</div>
-                  </div>
-                  <div class="hv-message">
-                    <span class="hv-msg-icon">🎉</span>
-                    Wishing you a very Happy Birthday, Priya! Your creativity and dedication light up our team every day. Have a wonderful year ahead!
-                  </div>
-                  <div class="hv-award">
-                    <div class="hv-award-inner">
-                      <div class="hv-award-left">
-                        <div class="hv-award-logo">xo<span>x</span>oday</div>
-                        <div class="hv-award-recipient">
-                          <img class="hv-award-avatar" src="https://ui-avatars.com/api/?name=Priya+Kapoor&background=fde68a&color=92400e&size=32&bold=true" alt="PK" />
-                          <div>
-                            <div class="hv-award-name-label">Priya Kapoor</div>
-                            <div class="hv-award-role">Product Designer</div>
-                          </div>
-                        </div>
-                        <div class="hv-award-emoji">🎂</div>
-                      </div>
-                      <div class="hv-award-right">
-                        <div class="hv-award-type">HAPPY<br>BIRTHDAY</div>
-                        <div class="hv-award-msg">May your special day be as wonderful as you are. From the whole team!</div>
-                        <div class="hv-award-chip">Birthday Celebration</div>
-                      </div>
-                      <div class="hv-award-bg"></div>
-                    </div>
-                  </div>
-                  <div class="hv-reactions">
-                    <button class="hv-react">🎉 36</button>
-                    <button class="hv-react">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Wish
-                    </button>
-                    <button class="hv-react">❤️ 18</button>
-                  </div>
-                </div>
-
-                <!-- Post 2 peek: Work Anniversary -->
-                <div class="hv-post hv-post-peek">
-                  <div class="hv-post-top">
-                    <div class="hv-av hv-av-blue">RM</div>
-                    <div class="hv-post-meta">
-                      <div class="hv-post-who"><strong>Rahul Mehta</strong> <span class="hv-got">is celebrating</span> <strong>5 Years ⭐</strong></div>
-                      <div class="hv-post-time">Yesterday &middot; <span class="hv-org">Engineering</span></div>
-                    </div>
-                  </div>
-                  <div class="hv-post-peek-blur"></div>
-                </div>
+              <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="font-size:22px;">⭐</div>
+                <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--dark-300);">Rahul Mehta · 5-Year Anniversary</div><div style="font-size:11px;color:var(--dark-000);">in 7 days · Wishboard live · ₹1,500 ready</div></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--brand);flex-shrink:0;"></div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--light-200);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;opacity:.6;">
+                <div style="font-size:22px;">💍</div>
+                <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--dark-300);">Anika Singh · Work Anniversary</div><div style="font-size:11px;color:var(--dark-000);">in 14 days · Preparing</div></div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Floating: AI -->
-          <div class="hv-float hv-float-ai">
-            <div class="hv-float-icon hv-float-icon-ai">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <div class="how-panel" id="how-panel-3">
+          <div class="how-panel-label">Celebration Day</div>
+          <div style="background:#1a1d21;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);">
+            <div style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:8px;">
+              <div style="width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,#5b5fc7,#7b83eb);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;">E</div>
+              <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.85);">Empuls</span>
+              <span style="font-size:10px;color:rgba(255,255,255,.35);">Today 09:00</span>
             </div>
-            <div class="hv-float-body">
-              <div class="hv-float-label">Copilot &middot; reminder</div>
-              <div class="hv-float-text">"Priya's birthday is in 8 days. Wishboard &amp; ₹500 gift auto-scheduled."</div>
-            </div>
-          </div>
-
-          <!-- Floating: toast -->
-          <div class="hv-float hv-float-toast">
-            <div class="hv-toast-icon">🎂</div>
-            <div>
-              <div class="hv-toast-title">Celebration sent!</div>
-              <div class="hv-toast-sub">Birthday &middot; ₹500 gift credit</div>
-            </div>
-          </div>
-
-          <!-- Floating: stats -->
-          <div class="hv-float hv-float-stats">
-            <div class="hv-stats-row">
-              <div class="hv-stat-item">
-                <div class="hv-stat-val hv-stat-green">100%</div>
-                <div class="hv-stat-lbl">milestones hit</div>
+            <div style="padding:14px;">
+              <div style="background:#fff;border-radius:10px;overflow:hidden;">
+                <div style="background:#fff8f0;padding:10px 14px;display:flex;align-items:center;gap:8px;">
+                  <div style="font-size:20px;">🎂</div>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#1a1a2e;">Happy Birthday, Priya Kapoor!</div>
+                    <div style="font-size:10px;color:#999;">Product Designer · Xoxoday Global</div>
+                  </div>
+                </div>
+                <div style="padding:12px 14px;">
+                  <div style="font-size:15px;font-weight:900;color:#d97706;margin-bottom:6px;">HAPPY BIRTHDAY 🎉</div>
+                  <div style="font-size:11px;color:#666;line-height:1.5;">Your creativity &amp; energy make us all shine brighter! From the whole team with love.</div>
+                </div>
+                <div style="padding:8px 14px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:10px;color:#888;">🎁 ₹500 gift credit · Open Wishboard</span>
+                  <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:4px;padding:3px 8px;font-size:10px;font-weight:600;color:#c2410c;">Redeem →</div>
+                </div>
               </div>
-              <div class="hv-stat-sep"></div>
-              <div class="hv-stat-item">
-                <div class="hv-stat-val">0 HR</div>
-                <div class="hv-stat-lbl">manual effort</div>
-              </div>
-              <div class="hv-stat-sep"></div>
-              <div class="hv-stat-item">
-                <div class="hv-stat-val hv-stat-amber">4.8&#9733;</div>
-                <div class="hv-stat-lbl">satisfaction</div>
+              <div style="display:flex;gap:8px;margin-top:8px;">
+                <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);">🎉 36</div>
+                <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);">❤️ 18</div>
+                <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);">Add a wish →</div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -536,257 +635,236 @@ button{font-family:var(--font-body);cursor:pointer;}
 </section>
 
 
-<!-- FEATURES -->
-<section class="features-sec" data-nav="light">
+<!-- FEATURE BENTO GRID -->
+<section class="bento-sec">
   <div class="wrap">
-    <div class="reveal" style="margin-bottom:64px;">
-      <span class="section-label">Platform capabilities</span>
+    <div class="bento-hdr reveal">
+      <span class="section-eyebrow">Platform capabilities</span>
       <h2 class="section-title">Everything it takes to make<br>every employee feel truly remembered</h2>
     </div>
 
-    <!-- Feature 1: Auto-detect milestones -->
-    <div class="features-layout" style="margin-bottom:80px;">
-      <div class="reveal">
-        <div style="margin-bottom:8px;"><span class="pill pill-amber">🎂 Milestone Detection</span></div>
-        <h3 style="font-family:var(--font-tight);font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;">Never miss a birthday or work anniversary again</h3>
-        <p style="font-size:15.5px;line-height:1.7;color:var(--body-muted);margin-bottom:24px;">Empuls connects with your HRMS to auto-detect every birthday and work anniversary the moment an employee joins. No calendar entries, no manual tracking. Every milestone is auto-scheduled weeks in advance — so the celebration is always ready when the day arrives.</p>
+    <div class="bento-grid">
+
+      <!-- Card 1: LARGE — Auto-detect milestones (span 2) -->
+      <div class="bento-card bento-span-2 reveal">
+        <div class="bento-tag">🎯 Zero manual effort</div>
+        <h3 class="bento-card__title">Never miss a birthday or work anniversary again</h3>
+        <p class="bento-card__body">Connect your HRMS and Empuls auto-schedules every milestone — birthday, work anniversary, or life event — the moment an employee joins. No spreadsheets, no calendar reminders, no one falls through the cracks.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="bento-progress-row">
+            <span class="bento-progress-label">🎂 Birthdays</span>
+            <div class="bento-progress-bar-wrap"><div class="bento-progress-bar" style="width:100%;background:#f97316;"></div></div>
+            <span class="bento-progress-count">142</span>
+          </div>
+          <div class="bento-progress-row">
+            <span class="bento-progress-label">⭐ Work Anniv.</span>
+            <div class="bento-progress-bar-wrap"><div class="bento-progress-bar" style="width:72%;background:var(--brand);"></div></div>
+            <span class="bento-progress-count">88</span>
+          </div>
+          <div class="bento-progress-row">
+            <span class="bento-progress-label">💍 Life events</span>
+            <div class="bento-progress-bar-wrap"><div class="bento-progress-bar" style="width:14%;background:var(--green);"></div></div>
+            <span class="bento-progress-count">17</span>
+          </div>
+          <div style="margin-top:6px;padding:10px 14px;background:var(--brand-l);border-radius:10px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:13px;font-weight:600;color:var(--brand);">247 milestones celebrated this quarter</span>
+            <span style="font-size:13px;font-weight:700;color:var(--green);">100% coverage ✓</span>
+          </div>
+        </div>
       </div>
-      <div class="features-visual reveal reveal-d1" style="background:#fff;border-color:#e8e6f0;">
-        <div style="width:90%;position:relative;z-index:1;">
-          <div style="background:#fff;border-radius:16px;border:1px solid #e8e6f0;overflow:hidden;box-shadow:var(--shadow-md);">
-            <div style="padding:12px 16px;background:#f7f7f9;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-size:13px;font-weight:700;color:#06182d;">Upcoming Celebrations</span>
-              <span style="font-size:10px;font-weight:600;color:#22c55e;background:rgba(34,197,94,.1);padding:2px 8px;border-radius:12px;">Auto-detected</span>
+
+      <!-- Card 2: Wishboard -->
+      <div class="bento-card reveal reveal-d1">
+        <div class="bento-tag">💌 Team Wishboard</div>
+        <h3 class="bento-card__title">Personal wishes from the whole team, automatically</h3>
+        <p class="bento-card__body">Empuls creates a private Wishboard and invites teammates to write a personal note. On the day, the employee opens a page full of heartfelt messages.</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="wish-card">
+            <div class="wish-card-top">
+              <div class="wish-av" style="background:#4338ca;">AJ</div>
+              <span class="wish-name">Aadarsh Jha</span>
             </div>
-            <div style="padding:12px 16px;display:flex;flex-direction:column;gap:8px;">
-              <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;">
-                <div style="font-size:28px;">🎂</div>
-                <div style="flex:1;">
-                  <div style="font-size:13px;font-weight:700;color:#06182d;">Priya Kapoor's Birthday</div>
-                  <div style="font-size:11.5px;color:#888;">Product Designer &middot; in 3 days</div>
-                </div>
-                <div style="background:#f97316;color:#fff;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600;white-space:nowrap;">🎁 ₹500</div>
-              </div>
-              <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;">
-                <div style="font-size:28px;">⭐</div>
-                <div style="flex:1;">
-                  <div style="font-size:13px;font-weight:700;color:#06182d;">Rahul Mehta · 5-Year Work Anniversary</div>
-                  <div style="font-size:11.5px;color:#888;">Engineering &middot; in 7 days</div>
-                </div>
-                <div style="background:#0a51e8;color:#fff;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600;white-space:nowrap;">🎁 ₹1,500</div>
-              </div>
-              <div style="border:1px solid #f0eef8;border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;opacity:.55;">
-                <div style="font-size:28px;">💍</div>
-                <div style="flex:1;">
-                  <div style="font-size:13px;font-weight:700;color:#06182d;">Anika Singh · 1st Wedding Anniversary</div>
-                  <div style="font-size:11.5px;color:#888;">Sales &middot; in 14 days</div>
-                </div>
-                <div style="background:#f5f6f8;color:#666;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600;">Scheduled</div>
-              </div>
+            <div class="wish-msg">"Happy Birthday Priya! Your designs always inspire the team. 🎉"</div>
+          </div>
+          <div class="wish-card">
+            <div class="wish-card-top">
+              <div class="wish-av" style="background:#0891b2;">VV</div>
+              <span class="wish-name">Vraj Vyas</span>
             </div>
-            <div style="padding:10px 16px;border-top:1px solid #eee;text-align:center;">
-              <div style="font-size:12px;color:#0a51e8;font-weight:600;">View 14 upcoming celebrations →</div>
+            <div class="wish-msg">"So grateful to work with you every day! Have a wonderful birthday 🎂"</div>
+          </div>
+          <div style="border:1.5px dashed var(--light-200);border-radius:10px;padding:8px;text-align:center;cursor:pointer;">
+            <span style="font-size:12px;font-weight:600;color:var(--brand);">+ 12 more wishes →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Gift catalog -->
+      <div class="bento-card reveal reveal-d2">
+        <div class="bento-tag">🎁 Meaningful Gifting</div>
+        <h3 class="bento-card__title">Let them choose their own gift from 10M+ options</h3>
+        <p class="bento-card__body">No generic gift boxes. Employees redeem from gift cards, Amazon, experiences, or prepaid cards — 175+ countries, local currencies.</p>
+        <div class="gift-grid">
+          <div class="gift-item">
+            <div class="gift-item__icon">🎁</div>
+            <div class="gift-item__name">Gift Cards</div>
+            <div class="gift-item__sub">30K+ brands</div>
+          </div>
+          <div class="gift-item">
+            <div class="gift-item__icon">🛍️</div>
+            <div class="gift-item__name">Amazon</div>
+            <div class="gift-item__sub">Millions of items</div>
+          </div>
+          <div class="gift-item">
+            <div class="gift-item__icon">✈️</div>
+            <div class="gift-item__name">Experiences</div>
+            <div class="gift-item__sub">Travel &amp; dining</div>
+          </div>
+          <div class="gift-item">
+            <div class="gift-item__icon">💳</div>
+            <div class="gift-item__name">Prepaid Card</div>
+            <div class="gift-item__sub">Spend anywhere</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: DARK — Social celebration feed -->
+      <div class="bento-card bento-dark reveal">
+        <div class="bento-card__eyebrow">Live celebration feed</div>
+        <h3 class="bento-card__title">Celebrations that the whole company sees</h3>
+        <p class="bento-card__body">Every milestone posts to the Empuls feed — so the whole org can celebrate together, not just the immediate team.</p>
+        <div class="feed-scroll-wrap">
+          <div class="feed-scroll-track">
+            <!-- Post 1 -->
+            <div class="feed-post">
+              <div class="feed-post-top">
+                <div class="feed-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">PK</div>
+                <span class="feed-post-name">Priya Kapoor · Birthday 🎂</span>
+                <span class="feed-post-time">Today</span>
+              </div>
+              <div class="feed-post-msg">Happy Birthday Priya! Your creativity lights up the team every day! 🎉</div>
+              <div class="feed-post-emoji">🎉 36 &nbsp; ❤️ 18</div>
+            </div>
+            <!-- Post 2 -->
+            <div class="feed-post">
+              <div class="feed-post-top">
+                <div class="feed-av" style="background:linear-gradient(135deg,#4338ca,#6366f1);">RM</div>
+                <span class="feed-post-name">Rahul Mehta · 5 Years ⭐</span>
+                <span class="feed-post-time">Yesterday</span>
+              </div>
+              <div class="feed-post-msg">5 incredible years! Thank you for your dedication, Rahul. 🌟</div>
+              <div class="feed-post-emoji">🏆 42 &nbsp; 👏 29</div>
+            </div>
+            <!-- Post 3 -->
+            <div class="feed-post">
+              <div class="feed-post-top">
+                <div class="feed-av" style="background:linear-gradient(135deg,#059669,#10b981);">AS</div>
+                <span class="feed-post-name">Anika Singh · Birthday 🎂</span>
+                <span class="feed-post-time">2 days ago</span>
+              </div>
+              <div class="feed-post-msg">Wishing you a spectacular birthday, Anika! 🎂✨</div>
+              <div class="feed-post-emoji">🎂 28 &nbsp; ❤️ 15</div>
+            </div>
+            <!-- Post 4 (duplicate for seamless scroll) -->
+            <div class="feed-post">
+              <div class="feed-post-top">
+                <div class="feed-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">PK</div>
+                <span class="feed-post-name">Priya Kapoor · Birthday 🎂</span>
+                <span class="feed-post-time">Today</span>
+              </div>
+              <div class="feed-post-msg">Happy Birthday Priya! Your creativity lights up the team every day! 🎉</div>
+              <div class="feed-post-emoji">🎉 36 &nbsp; ❤️ 18</div>
+            </div>
+            <div class="feed-post">
+              <div class="feed-post-top">
+                <div class="feed-av" style="background:linear-gradient(135deg,#4338ca,#6366f1);">RM</div>
+                <span class="feed-post-name">Rahul Mehta · 5 Years ⭐</span>
+                <span class="feed-post-time">Yesterday</span>
+              </div>
+              <div class="feed-post-msg">5 incredible years! Thank you for your dedication, Rahul. 🌟</div>
+              <div class="feed-post-emoji">🏆 42 &nbsp; 👏 29</div>
+            </div>
+            <div class="feed-post">
+              <div class="feed-post-top">
+                <div class="feed-av" style="background:linear-gradient(135deg,#059669,#10b981);">AS</div>
+                <span class="feed-post-name">Anika Singh · Birthday 🎂</span>
+                <span class="feed-post-time">2 days ago</span>
+              </div>
+              <div class="feed-post-msg">Wishing you a spectacular birthday, Anika! 🎂✨</div>
+              <div class="feed-post-emoji">🎂 28 &nbsp; ❤️ 15</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Feature 2: Wishboard (reverse) -->
-    <div class="features-layout reverse" style="margin-bottom:80px;">
-      <div class="reveal reveal-d1">
-        <div style="margin-bottom:8px;"><span class="pill pill-purple">💌 Team Wishboard</span></div>
-        <h3 style="font-family:var(--font-tight);font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;">Let the whole team send wishes — not just HR</h3>
-        <p style="font-size:15.5px;line-height:1.7;color:var(--body-muted);margin-bottom:24px;">When a milestone is detected, Empuls creates a Wishboard and gently notifies the team to add a personal note. By the time the day arrives, your colleague opens a beautiful collection of heartfelt messages from everyone who matters — not a templated email from a bot.</p>
-      </div>
-      <div class="features-visual reveal" style="background:#fff;border-color:#e8e6f0;">
-        <div style="width:90%;position:relative;z-index:1;">
-          <div style="background:#fff;border-radius:16px;border:1px solid #e8e6f0;overflow:hidden;box-shadow:var(--shadow-md);">
-            <div style="padding:12px 16px;border-bottom:1px solid #f0eef8;display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-size:13px;font-weight:700;color:#06182d;">🎂 Priya's Birthday Wishboard</span>
-              <span style="font-size:10px;color:#888;">9 wishes so far</span>
-            </div>
-            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
-              <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
-                  <div style="width:24px;height:24px;border-radius:50%;background:#4338ca;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">AJ</div>
-                  <span style="font-size:12px;font-weight:600;color:#06182d;">Aadarsh Jha</span>
-                </div>
-                <div style="font-size:12px;color:#555;line-height:1.5;">"Happy Birthday Priya! Your designs always inspire the team. Have a spectacular day! 🎉"</div>
-              </div>
-              <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:10px 12px;">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
-                  <div style="width:24px;height:24px;border-radius:50%;background:#0891b2;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">VV</div>
-                  <span style="font-size:12px;font-weight:600;color:#06182d;">Vraj Vyas</span>
-                </div>
-                <div style="font-size:12px;color:#555;line-height:1.5;">"Have an amazing day! 🎂 So grateful to work with you every day."</div>
-              </div>
-              <div style="border:1.5px dashed #e2e5ea;border-radius:12px;padding:10px 12px;text-align:center;cursor:pointer;">
-                <div style="font-size:12px;font-weight:600;color:#0a51e8;">+ Add your wish →</div>
-              </div>
-            </div>
-            <div style="padding:10px 16px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#888;">Delivered on her birthday automatically</span>
-              <div style="background:#0a51e8;color:#fff;border-radius:999px;padding:5px 14px;font-size:12px;font-weight:600;">Send →</div>
+      <!-- Card 5: Channel integration -->
+      <div class="bento-card reveal reveal-d1">
+        <div class="bento-tag">💬 Slack &amp; Teams</div>
+        <h3 class="bento-card__title">Celebrate in the tools teams already use</h3>
+        <p class="bento-card__body">Celebrations post directly to Slack and Microsoft Teams — no new app, no new login. The team sees it, reacts, and adds wishes without leaving their workflow.</p>
+        <div style="background:#1a1d21;border-radius:12px;padding:12px;margin-top:4px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:22px;height:22px;border-radius:4px;background:linear-gradient(135deg,#5b5fc7,#7b83eb);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;">E</div>
+            <span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.85);">Empuls</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.3);">Today 09:00</span>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.08);">
+            <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:4px;">🎂 Happy Birthday, Priya Kapoor!</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;">Your creativity and energy make us all shine brighter! 🎉</div>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <div style="background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;font-size:10px;color:rgba(255,255,255,.65);">🎉 View Wishboard</div>
+              <div style="background:rgba(249,115,22,.2);border-radius:4px;padding:3px 8px;font-size:10px;color:#fb923c;">🎁 Redeem Gift</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Feature 3: Gift catalog -->
-    <div class="features-layout" style="margin-bottom:80px;">
-      <div class="reveal">
-        <div style="margin-bottom:8px;"><span class="pill pill-green">🎁 Meaningful Rewards</span></div>
-        <h3 style="font-family:var(--font-tight);font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;">Attach a meaningful gift — not just a message</h3>
-        <p style="font-size:15.5px;line-height:1.7;color:var(--body-muted);margin-bottom:24px;">Add a gift credit to every celebration — automatically funded from the HR budget. Employees choose from 10M+ options across 175+ countries: gift cards from 30K+ brands, Amazon, experiences, travel, and prepaid cash cards. No voucher codes. No lost emails.</p>
-      </div>
-      <div class="features-visual reveal reveal-d1" style="background:#fff;border-color:#e8e6f0;">
-        <div style="width:90%;position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;">
-          <div style="background:#fff;border-radius:16px;border:1px solid #e8e6f0;overflow:hidden;box-shadow:var(--shadow-md);">
-            <div style="padding:12px 16px;background:#f7f7f9;border-bottom:1px solid #eee;font-size:13px;font-weight:700;color:#06182d;">Choose a gift for Rahul's 5-Year Anniversary</div>
-            <div style="padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-              <div style="background:#eef4fd;border:1.5px solid rgba(10,81,232,.2);border-radius:12px;padding:12px;text-align:center;cursor:pointer;">
-                <div style="font-size:24px;margin-bottom:6px;">🎁</div>
-                <div style="font-size:12px;font-weight:600;color:#06182d;">Gift Cards</div>
-                <div style="font-size:10px;color:#888;">30K+ brands</div>
-              </div>
-              <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:12px;padding:12px;text-align:center;cursor:pointer;">
-                <div style="font-size:24px;margin-bottom:6px;">🛍️</div>
-                <div style="font-size:12px;font-weight:600;color:#06182d;">Amazon Shop</div>
-                <div style="font-size:10px;color:#888;">Millions of products</div>
-              </div>
-              <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:12px;text-align:center;cursor:pointer;">
-                <div style="font-size:24px;margin-bottom:6px;">✈️</div>
-                <div style="font-size:12px;font-weight:600;color:#06182d;">Experiences</div>
-                <div style="font-size:10px;color:#888;">Travel &amp; dining</div>
-              </div>
-              <div style="background:#fdf4ff;border:1px solid #e9d5ff;border-radius:12px;padding:12px;text-align:center;cursor:pointer;">
-                <div style="font-size:24px;margin-bottom:6px;">💳</div>
-                <div style="font-size:12px;font-weight:600;color:#06182d;">Prepaid Card</div>
-                <div style="font-size:10px;color:#888;">Spend anywhere</div>
-              </div>
-            </div>
-            <div style="padding:12px 16px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:12px;color:#888;">Budget: <strong style="color:#06182d;">₹1,500</strong> allocated</span>
-              <div style="background:#0a51e8;color:#fff;border-radius:999px;padding:7px 18px;font-size:12.5px;font-weight:600;">Send celebration →</div>
-            </div>
+      <!-- Card 6: LARGE — Analytics (span 2) -->
+      <div class="bento-card bento-span-2 reveal">
+        <div class="bento-tag">📊 Celebration Analytics</div>
+        <h3 class="bento-card__title">Know that every employee is celebrated, always</h3>
+        <p class="bento-card__body">Real-time dashboards show celebration coverage, Wishboard participation rates, gift redemption, and satisfaction scores — so HR has full visibility without manual tracking.</p>
+        <div class="analytics-grid">
+          <div class="analytics-stat" style="background:#f0fdf4;">
+            <div class="analytics-stat__val" style="color:#16a34a;">100%</div>
+            <div class="analytics-stat__lbl">Milestone coverage</div>
+          </div>
+          <div class="analytics-stat" style="background:var(--brand-l);">
+            <div class="analytics-stat__val" style="color:var(--brand);">247</div>
+            <div class="analytics-stat__lbl">Milestones celebrated</div>
+          </div>
+          <div class="analytics-stat" style="background:#fff8f0;">
+            <div class="analytics-stat__val" style="color:#d97706;">4.8★</div>
+            <div class="analytics-stat__lbl">Avg. satisfaction</div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Feature 4: Multi-channel (reverse) -->
-    <div class="features-layout reverse" style="margin-bottom:80px;">
-      <div class="reveal reveal-d1">
-        <div style="margin-bottom:8px;"><span class="pill pill-purple">💬 Works everywhere</span></div>
-        <h3 style="font-family:var(--font-tight);font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;">Celebrate wherever the team already works</h3>
-        <p style="font-size:15.5px;line-height:1.7;color:var(--body-muted);margin-bottom:24px;">Birthday and anniversary celebrations appear right inside Slack and Microsoft Teams — no new app, no separate login. The whole team sees it, reacts, and adds wishes without ever leaving their workflow. It feels organic, not automated.</p>
-      </div>
-      <div class="features-visual reveal" style="background:#1f1f2e;border-color:#2e2e42;padding:20px 24px;">
-        <div style="width:92%;font-family:'Segoe UI',system-ui,sans-serif;">
-          <div style="padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:12px;">
-            <div style="font-size:10px;color:rgba(255,255,255,.38);margin-bottom:7px;">Empuls added to #celebrations-feed. Celebrations will be posted here automatically.</div>
-            <div style="display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(255,255,255,.22);border-radius:4px;padding:3px 11px;font-size:11px;color:rgba(255,255,255,.72);">🎂 View Wishboard</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">
-            <div style="width:26px;height:26px;border-radius:5px;background:linear-gradient(135deg,#5b5fc7,#7b83eb);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">E</div>
-            <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.9);">Empuls</span>
-            <span style="font-size:10px;color:rgba(255,255,255,.35);">Today 09:00</span>
-          </div>
-          <div style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.35);max-width:310px;">
-            <div style="background:#fff8f0;padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #f0e8d8;">
-              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#fde68a,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🎂</div>
-              <div>
-                <div style="font-size:11px;font-weight:700;color:#1a1a2e;">Happy Birthday, Priya Kapoor!</div>
-                <div style="font-size:9px;color:#999;">Product Designer &middot; Xoxoday Global</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:stretch;">
-              <div style="background:linear-gradient(160deg,#fffbf0,#fff8e8);padding:14px 10px;display:flex;align-items:center;justify-content:center;min-width:72px;border-right:1px solid #f0ece0;">
-                <span style="font-size:38px;line-height:1;">🎉</span>
-              </div>
-              <div style="padding:13px 13px;flex:1;">
-                <div style="font-size:8px;font-weight:700;letter-spacing:.1em;color:#bbb;margin-bottom:3px;">XOXODAY</div>
-                <div style="font-size:17px;font-weight:900;color:#d97706;line-height:1.05;margin-bottom:7px;letter-spacing:-.01em;">HAPPY<br>BIRTHDAY</div>
-                <div style="font-size:10px;color:#666;line-height:1.5;">Your creativity &amp; energy make us all shine brighter!</div>
-              </div>
-            </div>
-            <div style="padding:7px 12px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;background:#fafafa;">
-              <div style="font-size:10px;color:#888;">🎁 ₹500 gift credit attached</div>
-              <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:4px;padding:4px 10px;font-size:10px;font-weight:600;color:#c2410c;">Redeem →</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:8px;margin-top:10px;">
-            <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);">🎉 14</div>
-            <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);">❤️ 8</div>
-            <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.7);">Add a wish →</div>
-          </div>
+        <div class="sparkline-wrap">
+          <div class="sparkline-label">Celebrations per month — Q2 2026</div>
+          <svg width="100%" height="64" viewBox="0 0 400 64" preserveAspectRatio="none" fill="none">
+            <defs>
+              <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1D61F6" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#1D61F6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,52 L40,48 L80,44 L120,38 L160,30 L200,26 L240,20 L280,16 L320,12 L360,8 L400,4" stroke="#1D61F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0,52 L40,48 L80,44 L120,38 L160,30 L200,26 L240,20 L280,16 L320,12 L360,8 L400,4 L400,64 L0,64 Z" fill="url(#sparkGrad)"/>
+          </svg>
         </div>
       </div>
-    </div>
 
-    <!-- Feature 5: Analytics -->
-    <div class="features-layout">
-      <div class="reveal">
-        <div style="margin-bottom:8px;"><span class="pill pill-purple">📊 Celebration Analytics</span></div>
-        <h3 style="font-family:var(--font-tight);font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;">Know that every employee is celebrated, always</h3>
-        <p style="font-size:15.5px;line-height:1.7;color:var(--body-muted);margin-bottom:24px;">A real-time dashboard shows which milestones were celebrated, which ones are coming up, and which employees haven't been recognized in a while. HR gets full visibility — and full confidence — without doing any of the work manually.</p>
-      </div>
-      <div class="features-visual reveal reveal-d1" style="background:#fff;border-color:#e8e6f0;">
-        <div style="width:90%;position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;">
-          <div style="background:#fff;border-radius:16px;border:1px solid #e8e6f0;overflow:hidden;box-shadow:var(--shadow-md);">
-            <div style="padding:12px 16px;background:#f7f7f9;border-bottom:1px solid #eee;font-size:13px;font-weight:700;color:#06182d;">Celebration Coverage &middot; Q2 2026</div>
-            <div style="padding:14px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:8px;">
-              <div style="text-align:center;padding:10px;background:#f0fdf4;border-radius:12px;">
-                <div style="font-size:22px;font-weight:800;color:#16a34a;font-family:var(--font-tight);letter-spacing:-.02em;">100%</div>
-                <div style="font-size:11px;color:#888;margin-top:2px;">Coverage rate</div>
-              </div>
-              <div style="text-align:center;padding:10px;background:#eef4fd;border-radius:12px;">
-                <div style="font-size:22px;font-weight:800;color:#0a51e8;font-family:var(--font-tight);letter-spacing:-.02em;">247</div>
-                <div style="font-size:11px;color:#888;margin-top:2px;">Milestones sent</div>
-              </div>
-              <div style="text-align:center;padding:10px;background:#fff8f0;border-radius:12px;">
-                <div style="font-size:22px;font-weight:800;color:#d97706;font-family:var(--font-tight);letter-spacing:-.02em;">4.8★</div>
-                <div style="font-size:11px;color:#888;margin-top:2px;">Avg satisfaction</div>
-              </div>
-            </div>
-            <div style="padding:0 16px 14px;">
-              <div style="font-size:11px;font-weight:600;color:#888;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;">By milestone type</div>
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <span style="font-size:12px;color:#06182d;width:90px;">🎂 Birthdays</span>
-                  <div style="flex:1;height:8px;background:#eee;border-radius:999px;overflow:hidden;"><div style="width:100%;height:100%;background:#f97316;border-radius:999px;"></div></div>
-                  <span style="font-size:11px;color:#888;width:30px;text-align:right;">142</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <span style="font-size:12px;color:#06182d;width:90px;">⭐ Work Anniv.</span>
-                  <div style="flex:1;height:8px;background:#eee;border-radius:999px;overflow:hidden;"><div style="width:72%;height:100%;background:#0a51e8;border-radius:999px;"></div></div>
-                  <span style="font-size:11px;color:#888;width:30px;text-align:right;">88</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <span style="font-size:12px;color:#06182d;width:90px;">💍 Life events</span>
-                  <div style="flex:1;height:8px;background:#eee;border-radius:999px;overflow:hidden;"><div style="width:14%;height:100%;background:#22c55e;border-radius:999px;"></div></div>
-                  <span style="font-size:11px;color:#888;width:30px;text-align:right;">17</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-
   </div>
 </section>
 
 
 <!-- INTEGRATIONS -->
-<section class="integrations-sec" data-nav="light">
+<section class="integrations-sec">
   <div class="wrap">
     <div style="text-align:center;" class="reveal">
-      <span class="section-label">Works everywhere</span>
+      <span class="section-eyebrow" style="justify-content:center;">Works everywhere</span>
       <h2 class="section-title">Celebrations where your teams already work</h2>
-      <p class="section-body" style="margin:12px auto 0;text-align:center;max-width:520px;">250+ integrations — HRMS, Slack, Teams, and more — so celebrations fit right into how your team already works.</p>
+      <p class="section-body" style="max-width:520px;margin:0 auto;">250+ integrations — HRMS, Slack, Teams, and more — so celebrations fit into how your team already works.</p>
     </div>
     <div class="int-grid reveal reveal-d1">
       <div class="int-chip"><div class="int-chip__logo">💬</div>Slack</div>
@@ -808,12 +886,12 @@ button{font-family:var(--font-body);cursor:pointer;}
 
 
 <!-- FAQ -->
-<section class="faq-sec" data-nav="light">
+<section class="faq-sec">
   <div class="wrap">
     <div class="faq-wrap">
       <div class="reveal">
-        <span class="section-label">FAQ</span>
-        <h2 class="section-title">Frequently asked questions</h2>
+        <span class="section-eyebrow" style="justify-content:center;display:flex;">FAQ</span>
+        <h2 class="section-title" style="text-align:center;">Frequently asked questions</h2>
       </div>
       <div class="faq-list reveal reveal-d1">
 
@@ -894,9 +972,9 @@ button{font-family:var(--font-body);cursor:pointer;}
 
 
 <!-- CTA -->
-<section class="cta-sec" data-nav="dark">
+<section class="cta-sec">
   <div class="cta-inner">
-    <div class="cta-left">
+    <div>
       <h2>Make every milestone count.</h2>
       <p>Join thousands of HR teams who've stopped missing birthdays and anniversaries — and started making every employee feel truly seen.</p>
     </div>
@@ -994,36 +1072,70 @@ button{font-family:var(--font-body);cursor:pointer;}
 
 
 <script>
-// Reveal on scroll
+/* ── Canvas particles ── */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
+  resize();
+  window.addEventListener('resize',resize);
+  const pts=[];
+  for(let i=0;i<90;i++){pts.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.4+0.4,dx:(Math.random()-.5)*.28,dy:(Math.random()-.5)*.28,a:Math.random()*.45+.1});}
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pts.forEach(p=>{
+      p.x+=p.dx; p.y+=p.dy;
+      if(p.x<0)p.x=canvas.width; if(p.x>canvas.width)p.x=0;
+      if(p.y<0)p.y=canvas.height; if(p.y>canvas.height)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,255,255,${p.a})`;ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── Nav scroll pill ── */
+(function(){
+  const pill = document.getElementById('nav-pill');
+  if(!pill) return;
+  function tick(){pill.classList.toggle('scrolled',window.scrollY>10);}
+  window.addEventListener('scroll',tick,{passive:true});
+  tick();
+})();
+
+/* ── Reveal on scroll ── */
 const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-reveals.forEach(el => revealObs.observe(el));
-window.addEventListener('load', () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+reveals.forEach(el=>revObs.observe(el));
+window.addEventListener('load',()=>{
+  reveals.forEach(el=>{ if(el.getBoundingClientRect().top<window.innerHeight) el.classList.add('visible'); });
+});
+
+/* ── How it works tabs ── */
+document.querySelectorAll('.how-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    const step = tab.dataset.step;
+    document.querySelectorAll('.how-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.how-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById('how-panel-'+step);
+    if(panel) panel.classList.add('active');
   });
 });
 
-// FAQ accordion
-document.querySelectorAll('.faq-item__q').forEach(q => {
-  q.addEventListener('click', () => {
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-item__q').forEach(q=>{
+  q.addEventListener('click',()=>{
     const item = q.closest('.faq-item');
     const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
   });
 });
-
-// Nav pill scroll
-(function () {
-  var pill = document.querySelector('.xox-nav-pill');
-  if (!pill) return;
-  function tick() { pill.classList.toggle('is-scrolled', window.scrollY > 10); }
-  window.addEventListener('scroll', tick, { passive: true });
-  tick();
-}());
 </script>
 
 </body>
