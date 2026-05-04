@@ -150,25 +150,32 @@ button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
 .marquee-logo img{height:22px;width:auto;object-fit:contain;display:block;}
 
 /* ── HOW IT WORKS ── */
-.how-sec{padding:100px 0;background:var(--light-000);}
-.section-eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-000);margin-bottom:14px;}
+.how-sec{padding:96px 0;background:#edf0f8;}
+.section-eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;}
 .section-eyebrow::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0;}
-.section-title{font-family:var(--font-tight);font-size:clamp(26px,3.2vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--dark-300);margin-bottom:18px;}
+.section-title{font-family:var(--font-tight);font-size:clamp(28px,3.8vw,46px);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:var(--dark-300);margin-bottom:18px;}
 .section-body{font-size:16px;line-height:1.68;color:var(--dark-100);}
-.how-grid{display:grid;grid-template-columns:380px minmax(0,520px);gap:56px;align-items:start;margin-top:56px;}
-.how-tabs{display:flex;flex-direction:column;gap:4px;}
-.how-tab{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:14px;cursor:pointer;border:1.5px solid transparent;transition:background .2s,border-color .2s;}
-.how-tab:hover{background:#fff;border-color:var(--light-200);}
-.how-tab.active{background:#fff;border-color:rgba(29,97,246,.25);box-shadow:0 4px 16px rgba(29,97,246,.08);}
-.how-tab-num{width:32px;height:32px;border-radius:50%;background:var(--light-100);color:var(--dark-100);font-size:13px;font-weight:700;font-family:var(--font-mono);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,color .2s;}
+.how-hdr{text-align:center;max-width:640px;margin:0 auto 64px;}
+.how-subtitle{font-size:16px;color:var(--dark-100);line-height:1.6;margin-top:12px;}
+.how-grid{display:grid;grid-template-columns:400px minmax(0,1fr);gap:48px;align-items:start;}
+.how-tabs{display:flex;flex-direction:column;gap:2px;}
+.how-tab{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:14px;cursor:pointer;border:1.5px solid transparent;transition:background .2s,border-color .2s,box-shadow .2s;}
+.how-tab:not(.active):hover{background:rgba(255,255,255,.5);}
+.how-tab.active{background:#fff;border-color:rgba(29,97,246,.18);box-shadow:0 2px 16px rgba(29,97,246,.08);}
+.how-tab-num{width:28px;height:28px;border-radius:8px;background:#dde1ec;color:#4c5a70;font-size:12px;font-weight:700;font-family:var(--font-mono);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,color .2s;margin-top:2px;}
 .how-tab.active .how-tab-num{background:var(--brand);color:#fff;}
-.how-tab-title{font-size:15px;font-weight:700;color:var(--dark-300);margin-bottom:4px;}
-.how-tab-body{font-size:13.5px;color:var(--dark-100);line-height:1.6;display:none;}
+.how-tab-sublabel{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:5px;display:none;}
+.how-tab.active .how-tab-sublabel{display:block;}
+.how-tab-title{font-size:15.5px;font-weight:700;color:var(--dark-300);line-height:1.35;}
+.how-tab-body{font-size:13.5px;color:var(--dark-100);line-height:1.65;display:none;margin-top:8px;}
 .how-tab.active .how-tab-body{display:block;}
-.how-visual{background:#fff;border:1px solid var(--light-200);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);min-height:360px;position:relative;}
-.how-panel{display:none;padding:24px;}
+.how-tab-link{display:none;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--brand);}
+.how-tab-link:hover{text-decoration:underline;}
+.how-tab.active .how-tab-link{display:inline-block;}
+.how-visual{background:#fff;border:1px solid var(--light-200);border-radius:20px;overflow:hidden;box-shadow:0 4px 32px rgba(11,23,40,.10),0 1px 4px rgba(11,23,40,.06);min-height:380px;position:relative;}
+.how-panel{display:none;padding:28px;}
 .how-panel.active{display:block;}
-.how-panel-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-000);margin-bottom:16px;}
+.how-panel-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-000);margin-bottom:18px;}
 
 /* ── BENTO GRID ── */
 .bento-sec{padding:100px 0;background:var(--white);}
@@ -502,32 +509,39 @@ button{font-family:var(--font-body);cursor:pointer;border:none;background:none;}
 <!-- HOW IT WORKS -->
 <section class="how-sec">
   <div class="wrap">
-    <div class="reveal">
+    <div class="how-hdr reveal">
       <span class="section-eyebrow">How it works</span>
       <h2 class="section-title">From hire date to heartfelt celebration<br>— fully automated</h2>
+      <p class="how-subtitle">No manual tracking. No missed milestones. Just three steps and a moment that makes every employee feel seen.</p>
     </div>
     <div class="how-grid">
       <!-- Left: step tabs -->
-      <div class="how-tabs">
-        <div class="how-tab active" data-step="1">
+      <div class="how-tabs reveal">
+        <div class="how-tab" data-step="1">
           <div class="how-tab-num">1</div>
           <div>
+            <div class="how-tab-sublabel">Connect your HRMS</div>
             <div class="how-tab-title">Connect your HRMS</div>
             <div class="how-tab-body">Link Empuls to Workday, BambooHR, Darwinbox, Keka, or any of 50+ HRMS platforms. Employee birthdays and hire dates sync instantly — and every new hire's milestones are scheduled automatically the moment they join.</div>
+            <a class="how-tab-link" href="https://www.xoxoday.com/empuls/integrations">How HRMS sync works →</a>
           </div>
         </div>
         <div class="how-tab" data-step="2">
           <div class="how-tab-num">2</div>
           <div>
+            <div class="how-tab-sublabel">Milestone detection</div>
             <div class="how-tab-title">Empuls auto-schedules everything</div>
             <div class="how-tab-body">Weeks before each milestone, Empuls creates a private Wishboard, notifies the team to add a personal note, queues the celebration message, and reserves the gift credit — all without a single HR touchpoint.</div>
+            <a class="how-tab-link" href="https://www.xoxoday.com/empuls/employee-gifting">How auto-scheduling works →</a>
           </div>
         </div>
-        <div class="how-tab" data-step="3">
+        <div class="how-tab active" data-step="3">
           <div class="how-tab-num">3</div>
           <div>
+            <div class="how-tab-sublabel">Celebration day</div>
             <div class="how-tab-title">The team celebrates together</div>
             <div class="how-tab-body">On the day, a celebration posts to Slack, Teams, and the Empuls feed. The employee gets their Wishboard, their gift credit, and the feeling of being genuinely remembered — not just by HR, but by the whole team.</div>
+            <a class="how-tab-link" href="https://www.xoxoday.com/empuls/employee-gifting">How celebration day works →</a>
           </div>
         </div>
       </div>
